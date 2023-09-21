@@ -88,9 +88,9 @@ function App() {
       // Triggering Login using Service Provider ==> opens the popup
       const loginRes = await (tKey.serviceProvider as TorusServiceProvider).triggerLogin({
         typeOfLogin: 'google',
-        verifier: 'google-tkey-w3a',
+        verifier: 'w3a-google-demo',
         clientId:
-          '774338308167-q463s7kpvja16l4l0kko3nb925ikds2p.apps.googleusercontent.com',
+          '519228911939-cri01h55lsjbsia1k7ll6qpalrus75ps.apps.googleusercontent.com',
       });
 
       setUser(loginRes.userInfo);
@@ -553,9 +553,9 @@ function App() {
     <div className="container">
       <h1 className="title">
         <a target="_blank" href="https://web3auth.io/docs/guides/mpc" rel="noreferrer">
-          Web3Auth Core Kit tKey MPC Beta
+          Web3Auth Core Kit tKey MPC
         </a> {" "}
-        & ReactJS Ethereum Example
+        & Popup Flow Ethereum Example
       </h1>
 
       <div className="grid">{user ? loggedInView : unloggedInView}</div>

@@ -125,8 +125,8 @@ function App() {
       const idToken = await loginRes.user.getIdToken(true);
 
       const parsedToken = parseToken(idToken);
-      const verifier = "web3auth-firebase-examples";
-      const verifier_id = parsedToken.sub;
+      const verifier = "w3a-firebase-demo";
+      const verifier_id = parsedToken.email;
 
       const retrieveSharesResponse = await (tKey.serviceProvider as TorusServiceProvider).directWeb.getTorusKey(verifier, verifier_id, { verifier_id }, idToken)
 
@@ -622,9 +622,9 @@ function App() {
     <div className="container">
       <h1 className="title">
         <a target="_blank" href="https://web3auth.io/docs/guides/mpc" rel="noreferrer">
-          Web3Auth tKey MPC Beta
+          Web3Auth tKey MPC
         </a> {" "}
-        & ReactJS Ethereum Example
+        & Firebase Example
       </h1>
 
       <div className="grid">{user ? loggedInView : unloggedInView}</div>

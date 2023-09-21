@@ -144,8 +144,8 @@ function App() {
       // Triggering Login using Service Provider ==> opens the popup
       const loginResponse: TorusLoginResponse = await (tKey.serviceProvider as TorusServiceProvider).triggerLogin({
         typeOfLogin: "google",
-        verifier: "google-tkey-w3a",
-        clientId: "774338308167-q463s7kpvja16l4l0kko3nb925ikds2p.apps.googleusercontent.com",
+        verifier: "w3a-google-demo",
+        clientId: "519228911939-cri01h55lsjbsia1k7ll6qpalrus75ps.apps.googleusercontent.com",
       });
       setLoginResponse(loginResponse);
       setUser(loginResponse.userInfo);
