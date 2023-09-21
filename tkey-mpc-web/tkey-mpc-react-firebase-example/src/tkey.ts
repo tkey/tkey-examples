@@ -6,7 +6,7 @@ import { CustomChainConfig } from "@web3auth/base";
 // Configuration of Service Provider
 
 const web3AuthClientId =
-  "BEglQSgt4cUWcj6SKRdu5QkOXTsePmMcusG5EAoyjyOYKlVRjIF1iCNnMOTfpzCiunHRrMui8TIwQPXdkQ8Yxuk"; // get from https://dashboard.web3auth.io
+  "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ"; // get from https://dashboard.web3auth.io
 
 export const chainConfig: Omit<CustomChainConfig, "chainNamespace"> = {
   chainId: "0x5",

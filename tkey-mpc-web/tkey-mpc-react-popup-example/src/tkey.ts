@@ -8,7 +8,7 @@ const torusSp = new TorusServiceProvider({
   useTSS: true,
   customAuthArgs: {
     network: "sapphire_devnet",
-    web3AuthClientId: "YOUR_CLIENT_ID", // anything will work on localhost, but get one valid clientID before hosting, from https://dashboard.web3auth.io
+    web3AuthClientId: "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ", // anything will work on localhost, but get one valid clientID before hosting, from https://dashboard.web3auth.io
     baseUrl: `${window.location.origin}/serviceworker`,
     enableLogging: true,
   },
