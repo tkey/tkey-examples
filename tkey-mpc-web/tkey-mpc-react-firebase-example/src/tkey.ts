@@ -3,6 +3,7 @@ import { TorusServiceProvider } from "@tkey-mpc/service-provider-torus";
 import { TorusStorageLayer } from "@tkey-mpc/storage-layer-torus";
 import { ShareSerializationModule } from "@tkey-mpc/share-serialization";
 import { CustomChainConfig } from "@web3auth/base";
+import { TORUS_SAPPHIRE_NETWORK } from "@toruslabs/constants";
 // Configuration of Service Provider
 
 const web3AuthClientId =
@@ -20,7 +21,7 @@ export const chainConfig: Omit<CustomChainConfig, "chainNamespace"> = {
 const serviceProvider = new TorusServiceProvider({
   useTSS: true,
   customAuthArgs: {
-    network: "sapphire_devnet",
+    network: TORUS_SAPPHIRE_NETWORK.SAPPHIRE_MAINNET,
     web3AuthClientId, // anything will work on localhost, but get one valid clientID before hosting, from https://dashboard.web3auth.io
     baseUrl: `${window.location.origin}`,
     enableLogging: true,

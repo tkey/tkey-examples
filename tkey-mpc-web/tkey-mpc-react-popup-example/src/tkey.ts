@@ -2,12 +2,14 @@ import ThresholdKey from "@tkey-mpc/core";
 import { TorusServiceProvider } from "@tkey-mpc/service-provider-torus";
 import { TorusStorageLayer } from "@tkey-mpc/storage-layer-torus";
 import { ShareSerializationModule } from "@tkey-mpc/share-serialization";
+import { TORUS_SAPPHIRE_NETWORK } from "@toruslabs/constants";
+
 // Configuration of Service Provider
 
 const torusSp = new TorusServiceProvider({
   useTSS: true,
   customAuthArgs: {
-    network: "sapphire_devnet",
+    network: TORUS_SAPPHIRE_NETWORK.SAPPHIRE_MAINNET,
     web3AuthClientId: "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ", // anything will work on localhost, but get one valid clientID before hosting, from https://dashboard.web3auth.io
     baseUrl: `${window.location.origin}/serviceworker`,
     enableLogging: true,
