@@ -318,7 +318,7 @@ function App() {
   async function createSession(signingParams: any) {
     try {
       const sessionId = OpenloginSessionManager.generateRandomSessionKey();
-      sessionManager!.sessionKey = sessionId!;
+      sessionManager!.sessionId = sessionId!;
       if (!signingParams) {
         throw new Error("User not logged in");
       }
