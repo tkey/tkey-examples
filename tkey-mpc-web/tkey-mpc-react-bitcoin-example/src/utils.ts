@@ -24,7 +24,7 @@ export type SigningParams = {
   tssNonce: number;
   tssShare2: string;
   tssShare2Index: number;
-  compressedTSSPubKey: string;
+  tssPubKey: string;
   signatures: string[];
   userInfo: any;
   nodeDetails: any;
@@ -63,7 +63,7 @@ export const generateTSSEndpoints = (tssNodeEndpoints: string[], parties: number
 
 export const setupWeb3 = async (loginReponse: any, signingParams: SigningParams) => {
   try {
-    const { tssNonce, tssShare2, tssShare2Index, compressedTSSPubKey, signatures, ecPublicKey, nodeDetails } = signingParams;
+    const { tssNonce, tssShare2, tssShare2Index, tssPubKey, signatures, ecPublicKey, nodeDetails } = signingParams;
     const tssShare2BN = new BN(tssShare2, 16);
 
     const { verifier, verifierId } = loginReponse.userInfo;
@@ -107,7 +107,7 @@ export const setupWeb3 = async (loginReponse: any, signingParams: SigningParams)
         endpoints,
         sockets,
         share,
-        Buffer.from(compressedTSSPubKey, "hex").toString("base64"),
+        Buffer.from(tssPubKey, "hex").toString("base64"),
         true,
         tssImportUrl
       );
@@ -129,8 +129,8 @@ export const setupWeb3 = async (loginReponse: any, signingParams: SigningParams)
       return Promise.resolve(sigBuffer);
     };
 
-    if (!compressedTSSPubKey) {
-      throw new Error(`compressedTSSPubKey does not exist ${compressedTSSPubKey}`);
+    if (!tssPubKey) {
+      throw new Error(`compressedTSSPubKey does not exist ${tssPubKey}`);
     }
 
     const toAsyncSigner = (signer: Signer): SignerAsync => {

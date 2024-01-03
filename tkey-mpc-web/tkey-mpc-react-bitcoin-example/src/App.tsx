@@ -75,7 +75,6 @@ function App() {
         if (sessionId) {
           const signingParams: any = await sessionManager!.authorizeSession();
           uiConsole("signingParams", signingParams);
-          // signingParams["ecPublicKey"] = Buffer.from(signingParams.ecPublicKey.padStart(64, "0"), "hex");
 
           const factorKeyMetadata = await tKey.storageLayer.getMetadata<{
             message: string;
@@ -239,13 +238,13 @@ function App() {
       const { tssShare: tssShare2, tssIndex: tssShare2Index } = await tKey.getTSSShare(factorKey);
 
       // 4. derive tss pub key, tss pubkey is implicitly formed using the dkgPubKey and the userShare (as well as userTSSIndex)
-      let tssPubKey = tKey.getTSSPub()
+      let tssPubKeyPoint = tKey.getTSSPub()
       // const tssPubKey = getTSSPubKey(tssShare1PubKey, tssShare2PubKey, tssShare2Index);
       // console.log("tssPub", tssPubKey);
 
-      const TSSPubKey = Buffer.from(`${tssPubKey.x.toString(16, 64)}${tssPubKey.y.toString(16, 64)}`, "hex");
+      const tssPubKey = Buffer.from(`${tssPubKeyPoint.x.toString(16, 64)}${tssPubKeyPoint.y.toString(16, 64)}`, "hex");
 
-      const prefixedTSSPubKey = Buffer.from(`04${TSSPubKey.toString("hex")}`, "hex");
+      const prefixedTSSPubKey = Buffer.from(`04${tssPubKey.toString("hex")}`, "hex");
       const ECPubKey = ECPair.fromPublicKey(prefixedTSSPubKey, { network: testnet , compressed: true});
       const { address: btcAddress } = p2pkh({ pubkey: ECPubKey.publicKey, network: testnet });
       
@@ -264,7 +263,6 @@ function App() {
 
       const nodeDetails = await tKey.serviceProvider.getTSSNodeDetails()
 
-      const tsspubhex = Buffer.from(TSSPubKey).toString("hex");
       const signingParams : SigningParams = {
         oAuthShare: OAuthShare.toString("hex"),
         factorKey: factorKey.toString("hex"),
@@ -273,7 +271,7 @@ function App() {
         tssNonce,
         tssShare2 : tssShare2.toString("hex"),
         tssShare2Index,
-        compressedTSSPubKey: tsspubhex,
+        tssPubKey: tssPubKey.toString("hex"),
         signatures,
         userInfo: loginResponse!.userInfo,
         nodeDetails,
