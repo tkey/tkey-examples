@@ -16,6 +16,21 @@ const parties = 4;
 const clientIndex = parties - 1;
 const tssImportUrl = `https://sapphire-dev-2-2.authnetwork.dev/tss/v1/clientWasm`;
 
+export type SigningParams = {
+  oAuthShare: string;
+  factorKey: string;
+  btcAddress: string;
+  ecPublicKey: string;
+  tssNonce: number;
+  tssShare2: string;
+  tssShare2Index: number;
+  compressedTSSPubKey: string;
+  signatures: string[];
+  userInfo: any;
+  nodeDetails: any;
+};
+
+
 const DELIMITERS = {
   Delimiter1: "\u001c",
   Delimiter2: "\u0015",
@@ -46,10 +61,10 @@ export const generateTSSEndpoints = (tssNodeEndpoints: string[], parties: number
   return { endpoints, tssWSEndpoints, partyIndexes };
 };
 
-export const setupWeb3 = async (loginReponse: any, signingParams: any) => {
+export const setupWeb3 = async (loginReponse: any, signingParams: SigningParams) => {
   try {
     const { tssNonce, tssShare2, tssShare2Index, compressedTSSPubKey, signatures, ecPublicKey, nodeDetails } = signingParams;
-    // console.log("signingParams", compressedTSSPubKey.toString("hex"));
+    const tssShare2BN = new BN(tssShare2, 16);
 
     const { verifier, verifierId } = loginReponse.userInfo;
 
@@ -75,7 +90,7 @@ export const setupWeb3 = async (loginReponse: any, signingParams: any) => {
 
       const participatingServerDKGIndexes = [1, 2, 3];
       const dklsCoeff = getDKLSCoeff(true, participatingServerDKGIndexes, tssShare2Index);
-      const denormalisedShare = dklsCoeff.mul(tssShare2).umod(ec.curve.n);
+      const denormalisedShare = dklsCoeff.mul(tssShare2BN).umod(ec.curve.n);
       const share = Buffer.from(denormalisedShare.toString(16, 64), "hex").toString("base64");
 
       if (!currentSession) {
@@ -118,10 +133,6 @@ export const setupWeb3 = async (loginReponse: any, signingParams: any) => {
       throw new Error(`compressedTSSPubKey does not exist ${compressedTSSPubKey}`);
     }
 
-    const getPublic: () => Promise<Buffer> = async () => {
-      return compressedTSSPubKey;
-    };
-
     const toAsyncSigner = (signer: Signer): SignerAsync => {
       const ret: SignerAsync = {
         publicKey: signer.publicKey,
@@ -143,7 +154,7 @@ export const setupWeb3 = async (loginReponse: any, signingParams: any) => {
       return ret;
     };
 
-    const btcSigner = toAsyncSigner({ publicKey: ecPublicKey, sign: sign as any });
+    const btcSigner = toAsyncSigner({ publicKey: Buffer.from(ecPublicKey, "hex"), sign: sign as any });
     return btcSigner;
     // await ethereumSigningProvider.setupProvider({ sign, getPublic });
     // // console.log(ethereumSigningProvider.provider);
