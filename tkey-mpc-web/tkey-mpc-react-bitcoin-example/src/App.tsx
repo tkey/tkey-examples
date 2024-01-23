@@ -9,7 +9,7 @@ import swal from "sweetalert";
 import { tKey } from "./tkey";
 import { addFactorKeyMetadata, setupWeb3, copyExistingTSSShareForNewFactor, addNewTSSShareAndFactor, getEcCrypto, SigningParams } from "./utils";
 import { OpenloginSessionManager } from "@toruslabs/openlogin-session-manager";
-import { networks, Psbt } from "bitcoinjs-lib";
+import { networks, Psbt, payments } from "bitcoinjs-lib";
 import ecc from "@bitcoinerlab/secp256k1";
 import ECPairFactory from "ecpair";
 import { testnet } from "bitcoinjs-lib/src/networks";
@@ -508,6 +508,67 @@ function App() {
     console.log("signedTransaction: ", signedTransaction );
   };
 
+
+
+  const sendTransactionSegwit = async () => {
+    if (!web3) {
+      uiConsole("web3 not initialized yet");
+      return;
+    }
+
+    let account = payments.p2wpkh({ pubkey: web3.publicKey, network: testnet });
+
+    if (bitcoinUTXID?.length !== 64) {
+      uiConsole("invalid bitcoin utxid");
+      return;
+    }
+    if (!signingParams) {
+      uiConsole("signingParams not initialized yet");
+      return;
+    }
+    try {
+      parseInt(fundingTxIndex as string);
+    } catch (e) { 
+      uiConsole("invalid funding tx index");
+      return }
+    
+    // unspent transaction
+    const txId = bitcoinUTXID; // looks like this "bb072aa6a43af31642b635e82bd94237774f8240b3e6d99a1b659482dce013c6"
+    const total = Number(latestBalance); // 1321953; // 0.0000017
+
+    const value = 20;
+    const miner = Number(minerFee);
+
+    const outAddr = await getAccounts();
+    console.log(outAddr, typeof outAddr)
+    const psbt = new Psbt({ network: networks.testnet })
+      .addInput({
+        hash: txId,
+        index: parseInt(fundingTxIndex as string),
+        witnessUtxo: {
+          script: Buffer.from('0014' + account.hash?.toString("hex"), 'hex'),
+          value: total, 
+        },
+      })
+      .addOutput({
+        address: account.address!,
+        value: value,
+      })
+      .addOutput({
+        address: account.address!,
+        value: total - value - miner,
+      });
+
+    uiConsole("Signing transaction...");
+    await psbt.signInputAsync(0, web3);
+    psbt.validateSignaturesOfInput(0, BTCValidator);
+    const validation = psbt.validateSignaturesOfInput(0, BTCValidator);
+    const signedTransaction = psbt.finalizeAllInputs().extractTransaction().toHex()
+    uiConsole("Signed Transaction: ", signedTransaction, "Copy the above into https://blockstream.info/testnet/tx/push");
+    console.log(validation ? "Validated" : "failed");
+    console.log("signedTransaction: ", signedTransaction );
+  };
+
   const loggedInView = (
     <>
       <h2 className="subtitle">Account Details</h2>
@@ -568,6 +629,9 @@ function App() {
 
         <button onClick={sendTransaction} className="card">
           Sign PSBT Transaction
+        </button>
+        <button onClick={sendTransactionSegwit} className="card">
+          Sign Segwit Transaction
         </button>
       </div>
       </div>
