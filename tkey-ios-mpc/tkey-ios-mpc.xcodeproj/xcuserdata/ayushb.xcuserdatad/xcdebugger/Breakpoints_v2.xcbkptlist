@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B05102EB-4ADC-4989-948B-95EAFC980686"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9A6147D5-9915-4980-8705-A40C3C324A87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "initialize()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 27f4209154d90f0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2784">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 57da398424d0530d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "3836">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - d892e7fe7ce3aac3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2444">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - eabcc90935f080c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2748">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 4ec09727a3d93ccd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(17) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2776">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 749c7ee31bee1cc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(21) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2764">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 9f8b5364bc6581c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(22) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 68621eed0e372ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(23) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "3828">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 43df19832a4e3dcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(26) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "608">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - eacaee054ec5aeca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(27) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2744">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 15f9fc8ee34313cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(28) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "560">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - bcf4d11007da84c8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(29) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "536">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 686ac73ee2031dc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(30) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "624">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 9099d5c0069a8ec1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(31) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2768">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - d892e7fe7ce3aac3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2188">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 749c7ee31bee1cc0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(21) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2276">
+               </Location>
+               <Location
+                  uuid = "9A6147D5-9915-4980-8705-A40C3C324A87 - 9099d5c0069a8ec1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(31) suspend resume partial function for closure #1 @Sendable () async throws -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.initialize() -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "249"
+                  endingLineNumber = "249"
+                  offsetFromSymbolStart = "2280">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
