@@ -13,14 +13,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             if customAuthViewModel.isLoggedIn {
-                HomeView(thresholdKeyViewMode: ThresholdKeyViewModel(
+                ThresholdKeyView(thresholdKeyViewModel: ThresholdKeyViewModel(
                     userData: customAuthViewModel.torusKeyDetails
                 ))
+                
             } else {
                 LoginView(customAuthViewModel: customAuthViewModel)
             }
-        }.onAppear{
-            customAuthViewModel.intialize()
         }
     }
 }

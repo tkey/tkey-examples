@@ -22,6 +22,8 @@ struct LoginView: View {
                 Text("Sign in with Google")
             }).buttonStyle(.bordered)
             Spacer()
+        }.onAppear {
+            customAuthViewModel.intialize()
         }
         
     }

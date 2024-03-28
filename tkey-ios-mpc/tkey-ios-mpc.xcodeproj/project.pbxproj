@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28122A3C2BB28E9C00B6FA63 /* ThresholdKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */; };
+		28122A3F2BB2A04A00B6FA63 /* Web3SwiftMpcProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */; };
+		28122A412BB4429E00B6FA63 /* EthereumClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28122A402BB4429E00B6FA63 /* EthereumClient.swift */; };
+		28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A432BB4431800B6FA63 /* web3-zksync.swift */; };
+		28122A462BB4431800B6FA63 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A452BB4431800B6FA63 /* web3.swift */; };
 		2882D6632BADAE6900B3E518 /* tkey_ios_mpcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */; };
 		2882D6652BADAE6900B3E518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6642BADAE6900B3E518 /* ContentView.swift */; };
 		2882D6672BADAE6B00B3E518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882D6662BADAE6B00B3E518 /* Assets.xcassets */; };
@@ -21,7 +26,6 @@
 		2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */; };
 		2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D69E2BAE8D2F00B3E518 /* TorusUtils */; };
 		2882D6A22BAEC57C00B3E518 /* KeyChainInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */; };
-		2882D6A52BB12D2600B3E518 /* mpc-core-kit-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D6A42BB12D2600B3E518 /* mpc-core-kit-swift */; };
 		2882D6A82BB12D9600B3E518 /* CustomAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D6A72BB12D9600B3E518 /* CustomAuth */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdKeyView.swift; sourceTree = "<group>"; };
+		28122A402BB4429E00B6FA63 /* EthereumClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumClient.swift; sourceTree = "<group>"; };
 		2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tkey-ios-mpc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcApp.swift; sourceTree = "<group>"; };
 		2882D6642BADAE6900B3E518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,8 +72,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2882D6912BADC5BD00B3E518 /* ThresholdKey in Frameworks */,
+				28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */,
+				28122A3F2BB2A04A00B6FA63 /* Web3SwiftMpcProvider in Frameworks */,
 				2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */,
-				2882D6A52BB12D2600B3E518 /* mpc-core-kit-swift in Frameworks */,
+				28122A462BB4431800B6FA63 /* web3.swift in Frameworks */,
 				2882D6A82BB12D9600B3E518 /* CustomAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,7 +124,6 @@
 				2882D6962BADC9F900B3E518 /* Views */,
 				2882D6922BADC5CB00B3E518 /* ViewModels */,
 				2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */,
-				2882D6642BADAE6900B3E518 /* ContentView.swift */,
 				2882D6662BADAE6B00B3E518 /* Assets.xcassets */,
 				2882D6682BADAE6B00B3E518 /* Preview Content */,
 			);
@@ -160,8 +167,10 @@
 		2882D6962BADC9F900B3E518 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2882D6642BADAE6900B3E518 /* ContentView.swift */,
 				2882D6972BADCA0500B3E518 /* LoginView.swift */,
 				2882D6992BADCC4300B3E518 /* HomeView.swift */,
+				28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */,
+				28122A402BB4429E00B6FA63 /* EthereumClient.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -193,8 +203,10 @@
 			packageProductDependencies = (
 				2882D6902BADC5BD00B3E518 /* ThresholdKey */,
 				2882D69E2BAE8D2F00B3E518 /* TorusUtils */,
-				2882D6A42BB12D2600B3E518 /* mpc-core-kit-swift */,
 				2882D6A72BB12D9600B3E518 /* CustomAuth */,
+				28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */,
+				28122A432BB4431800B6FA63 /* web3-zksync.swift */,
+				28122A452BB4431800B6FA63 /* web3.swift */,
 			);
 			productName = "tkey-ios-mpc";
 			productReference = 2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */;
@@ -272,6 +284,8 @@
 				2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */,
 				2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */,
 				2882D6A62BB12D9600B3E518 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */,
+				28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */,
+				28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */,
 			);
 			productRefGroup = 2882D6602BADAE6900B3E518 /* Products */;
 			projectDirPath = "";
@@ -317,11 +331,13 @@
 			files = (
 				2882D6652BADAE6900B3E518 /* ContentView.swift in Sources */,
 				2882D6942BADC5E800B3E518 /* CustomAuthViewModel.swift in Sources */,
+				28122A3C2BB28E9C00B6FA63 /* ThresholdKeyView.swift in Sources */,
 				2882D6982BADCA0500B3E518 /* LoginView.swift in Sources */,
 				2882D69A2BADCC4300B3E518 /* HomeView.swift in Sources */,
 				2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */,
 				2882D6632BADAE6900B3E518 /* tkey_ios_mpcApp.swift in Sources */,
 				2882D6A22BAEC57C00B3E518 /* KeyChainInterface.swift in Sources */,
+				28122A412BB4429E00B6FA63 /* EthereumClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +669,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tkey/web3-swift-mpc-provider";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
+		28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argentlabs/web3.swift";
+			requirement = {
+				kind = exactVersion;
+				version = 1.6.1;
+			};
+		};
 		2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tkey/tkey-mpc-swift";
@@ -680,6 +712,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */;
+			productName = Web3SwiftMpcProvider;
+		};
+		28122A432BB4431800B6FA63 /* web3-zksync.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = "web3-zksync.swift";
+		};
+		28122A452BB4431800B6FA63 /* web3.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = web3.swift;
+		};
 		2882D6902BADC5BD00B3E518 /* ThresholdKey */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */;
@@ -689,10 +736,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */;
 			productName = TorusUtils;
-		};
-		2882D6A42BB12D2600B3E518 /* mpc-core-kit-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = "mpc-core-kit-swift";
 		};
 		2882D6A72BB12D9600B3E518 /* CustomAuth */ = {
 			isa = XCSwiftPackageProductDependency;
