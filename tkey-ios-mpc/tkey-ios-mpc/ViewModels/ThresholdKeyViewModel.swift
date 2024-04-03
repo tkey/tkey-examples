@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import CustomAuth
 import tkey_pkg
 import TorusUtils
 import FetchNodeDetails
@@ -15,14 +14,15 @@ import Web3SwiftMpcProvider
 import web3
 import CryptoSwift
 import UIKit
+import SingleFactorAuth
 
 class ThresholdKeyViewModel: ObservableObject {
     
-    var userData: TorusKeyData
+    var torusSFAKey: TorusSFAKey
     var ethereumClient: EthereumClient!
     
-    init(userData: TorusKeyData) {
-        self.userData = userData
+    init(torusSFAKey: TorusSFAKey) {
+        self.torusSFAKey = torusSFAKey
         ethereumClient = EthereumClient()
     }
     
@@ -54,7 +54,7 @@ class ThresholdKeyViewModel: ObservableObject {
     func initialize() {
         Task {
             do {
-                guard let finalKeyData = userData.torusKey.finalKeyData else {
+                guard let finalKeyData = torusSFAKey.getPrivateKey() else {
                     showAlert(alertContent:"Failed to get public address from userinfo")
                     return
                 }

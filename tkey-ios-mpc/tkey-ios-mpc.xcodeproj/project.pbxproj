@@ -12,6 +12,11 @@
 		28122A412BB4429E00B6FA63 /* EthereumClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28122A402BB4429E00B6FA63 /* EthereumClient.swift */; };
 		28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A432BB4431800B6FA63 /* web3-zksync.swift */; };
 		28122A462BB4431800B6FA63 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A452BB4431800B6FA63 /* web3.swift */; };
+		285FF2622BBC3F4000A526F5 /* SingleFactorAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2612BBC3F4000A526F5 /* SingleFactorAuth */; };
+		285FF2642BBC7D1800A526F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */; };
+		285FF2672BBC7D8C00A526F5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2662BBC7D8C00A526F5 /* FirebaseAuth */; };
+		285FF26A2BBC7DF700A526F5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2692BBC7DF700A526F5 /* GoogleSignIn */; };
+		285FF26C2BBC7DF700A526F5 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */; };
 		2882D6632BADAE6900B3E518 /* tkey_ios_mpcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */; };
 		2882D6652BADAE6900B3E518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6642BADAE6900B3E518 /* ContentView.swift */; };
 		2882D6672BADAE6B00B3E518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882D6662BADAE6B00B3E518 /* Assets.xcassets */; };
@@ -26,7 +31,6 @@
 		2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */; };
 		2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D69E2BAE8D2F00B3E518 /* TorusUtils */; };
 		2882D6A22BAEC57C00B3E518 /* KeyChainInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */; };
-		2882D6A82BB12D9600B3E518 /* CustomAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D6A72BB12D9600B3E518 /* CustomAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,8 @@
 /* Begin PBXFileReference section */
 		28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdKeyView.swift; sourceTree = "<group>"; };
 		28122A402BB4429E00B6FA63 /* EthereumClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumClient.swift; sourceTree = "<group>"; };
+		285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		285FF26D2BBC7F6300A526F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tkey-ios-mpc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcApp.swift; sourceTree = "<group>"; };
 		2882D6642BADAE6900B3E518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,12 +77,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				285FF26C2BBC7DF700A526F5 /* GoogleSignInSwift in Frameworks */,
 				2882D6912BADC5BD00B3E518 /* ThresholdKey in Frameworks */,
+				285FF26A2BBC7DF700A526F5 /* GoogleSignIn in Frameworks */,
 				28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */,
 				28122A3F2BB2A04A00B6FA63 /* Web3SwiftMpcProvider in Frameworks */,
+				285FF2622BBC3F4000A526F5 /* SingleFactorAuth in Frameworks */,
 				2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */,
+				285FF2672BBC7D8C00A526F5 /* FirebaseAuth in Frameworks */,
 				28122A462BB4431800B6FA63 /* web3.swift in Frameworks */,
-				2882D6A82BB12D9600B3E518 /* CustomAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +129,8 @@
 		2882D6612BADAE6900B3E518 /* tkey-ios-mpc */ = {
 			isa = PBXGroup;
 			children = (
+				285FF26D2BBC7F6300A526F5 /* Info.plist */,
+				285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */,
 				2882D6A02BAEC57000B3E518 /* Helpers */,
 				2882D6962BADC9F900B3E518 /* Views */,
 				2882D6922BADC5CB00B3E518 /* ViewModels */,
@@ -203,10 +214,13 @@
 			packageProductDependencies = (
 				2882D6902BADC5BD00B3E518 /* ThresholdKey */,
 				2882D69E2BAE8D2F00B3E518 /* TorusUtils */,
-				2882D6A72BB12D9600B3E518 /* CustomAuth */,
 				28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */,
 				28122A432BB4431800B6FA63 /* web3-zksync.swift */,
 				28122A452BB4431800B6FA63 /* web3.swift */,
+				285FF2612BBC3F4000A526F5 /* SingleFactorAuth */,
+				285FF2662BBC7D8C00A526F5 /* FirebaseAuth */,
+				285FF2692BBC7DF700A526F5 /* GoogleSignIn */,
+				285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */,
 			);
 			productName = "tkey-ios-mpc";
 			productReference = 2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */;
@@ -283,9 +297,11 @@
 			packageReferences = (
 				2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */,
 				2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */,
-				2882D6A62BB12D9600B3E518 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */,
 				28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */,
 				28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */,
+				285FF2602BBC3F4000A526F5 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */,
+				285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 2882D6602BADAE6900B3E518 /* Products */;
 			projectDirPath = "";
@@ -305,6 +321,7 @@
 			files = (
 				2882D66A2BADAE6B00B3E518 /* Preview Assets.xcassets in Resources */,
 				2882D6672BADAE6B00B3E518 /* Assets.xcassets in Resources */,
+				285FF2642BBC7D1800A526F5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +521,7 @@
 				DEVELOPMENT_TEAM = HYCGKU63WD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "tkey-ios-mpc/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -533,6 +551,7 @@
 				DEVELOPMENT_TEAM = HYCGKU63WD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "tkey-ios-mpc/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -685,6 +704,30 @@
 				version = 1.6.1;
 			};
 		};
+		285FF2602BBC3F4000A526F5 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Web3Auth/single-factor-auth-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.1;
+			};
+		};
+		285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 		2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tkey/tkey-mpc-swift";
@@ -699,14 +742,6 @@
 			requirement = {
 				branch = master;
 				kind = branch;
-			};
-		};
-		2882D6A62BB12D9600B3E518 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/torusresearch/customauth-swift-sdk";
-			requirement = {
-				kind = exactVersion;
-				version = 7.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -727,6 +762,26 @@
 			package = 28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */;
 			productName = web3.swift;
 		};
+		285FF2612BBC3F4000A526F5 /* SingleFactorAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285FF2602BBC3F4000A526F5 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */;
+			productName = SingleFactorAuth;
+		};
+		285FF2662BBC7D8C00A526F5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		285FF2692BBC7DF700A526F5 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
 		2882D6902BADC5BD00B3E518 /* ThresholdKey */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */;
@@ -736,11 +791,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */;
 			productName = TorusUtils;
-		};
-		2882D6A72BB12D9600B3E518 /* CustomAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2882D6A62BB12D9600B3E518 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */;
-			productName = CustomAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
