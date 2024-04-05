@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import tkey_pkg
 import TorusUtils
 import FetchNodeDetails
 import CommonSources
@@ -15,14 +14,14 @@ import web3
 import CryptoSwift
 import UIKit
 import SingleFactorAuth
+import tkey_mpc_swift
 
 class ThresholdKeyViewModel: ObservableObject {
-    
-    var torusSFAKey: TorusSFAKey
+    var customAuthViewModel: CustomAuthViewModel
     var ethereumClient: EthereumClient!
     
-    init(torusSFAKey: TorusSFAKey) {
-        self.torusSFAKey = torusSFAKey
+    init(customAuthViewModel: CustomAuthViewModel) {
+        self.customAuthViewModel = customAuthViewModel
         ethereumClient = EthereumClient()
     }
     
@@ -54,35 +53,26 @@ class ThresholdKeyViewModel: ObservableObject {
     func initialize() {
         Task {
             do {
-                guard let finalKeyData = torusSFAKey.getPrivateKey() else {
-                    showAlert(alertContent:"Failed to get public address from userinfo")
+                guard let postboxkey = self.customAuthViewModel.torusSFAKey.finalKeyData?.privKey else {
+                    showAlert(alertContent: "Not able to retrive private key")
                     return
                 }
                 
-                guard let verifierLocal = userData.userInfo["verifier"] as? String, let verifierIdLocal = userData.userInfo["verifierId"] as? String else {
-                    showAlert(alertContent: "Failed to get verifier or verifierId from userinfo")
-                    return
-                }
-                verifier = verifierLocal
-                verifierId = verifierIdLocal
+                verifier = "w3a-firebase-demo"
+                verifierId = customAuthViewModel.authDataResult.user.uid
                 
-                guard let postboxkey = finalKeyData.privKey else {
-                    showAlert(alertContent:"Failed to get postboxkey")
-                    return
-                }
+                let idToken = try await self.customAuthViewModel.authDataResult.user.getIDToken()
                 
-                guard let sessionData = userData.torusKey.sessionData else {
-                    showAlert(alertContent:"Failed to get sessionData")
+                guard let sessionData = self.customAuthViewModel.torusSFAKey.sessionData else {
+                    showAlert(alertContent: "Failed to retrive session data")
                     return
                 }
                 
                 let sessionTokenData = sessionData.sessionTokenData
                 
                 signatures = sessionTokenData.map { token in
-                    return [  "data": Data(hex: token!.token).base64EncodedString(),
-                              "sig": token!.signature ]
+                    return [  "data": Data.init(hex: token!.token).base64EncodedString(), "sig": token!.signature ]
                 }
-                assert(signatures.isEmpty != true)
                 
                 guard let storage_layer = try? StorageLayer(
                     enable_logging: true,
@@ -95,7 +85,8 @@ class ThresholdKeyViewModel: ObservableObject {
                 
                 torusUtils = TorusUtils(
                     enableOneKey: true,
-                    network: .sapphire(.SAPPHIRE_MAINNET)
+                    network: .sapphire(.SAPPHIRE_MAINNET), 
+                    clientId: "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ"
                 )
                 
                 let nodeDetailsManager = NodeDetailManager(
@@ -353,13 +344,9 @@ class ThresholdKeyViewModel: ObservableObject {
     func resetAccount() {
         Task {
             do {
-                guard let finalKeyData = userData.torusKey.finalKeyData else {
-                    showAlert(alertContent:"Failed to get public address from userinfo")
-                    return
-                }
                 
-                guard let postboxkey = finalKeyData.privKey else {
-                    showAlert(alertContent: "Failed to get public address from userinfo")
+                guard let postboxkey = self.customAuthViewModel.torusSFAKey.finalKeyData?.privKey else {
+                    showAlert(alertContent: "Not able to retrive private key")
                     return
                 }
                 
@@ -743,7 +730,7 @@ class ThresholdKeyViewModel: ObservableObject {
             selectedTag: tag,
             verifier: verifier,
             verifierID: verifierId,
-            nodeIndexes: tssPublicAddressInfo.nodeIndexes.sorted(),
+            nodeIndexes: tssPublicAddressInfo.nodeIndexes,
             tssEndpoints: tssEndPoints,
             authSigs: sigs
         )

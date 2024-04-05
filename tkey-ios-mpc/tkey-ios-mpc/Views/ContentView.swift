@@ -14,7 +14,7 @@ struct ContentView: View {
         NavigationView {
             if customAuthViewModel.isLoggedIn {
                 ThresholdKeyView(thresholdKeyViewModel: ThresholdKeyViewModel(
-                    userData: customAuthViewModel.torusKeyDetails
+                    customAuthViewModel: customAuthViewModel
                 ))
                 
             } else {

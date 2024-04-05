@@ -10,33 +10,22 @@ import SingleFactorAuth
 import FirebaseAuth
 import GoogleSignIn
 import FirebaseCore
+import TorusUtils
 
 class CustomAuthViewModel: ObservableObject {
-//    var customAuth: CustomAuth!
-    var torusSFAKey: TorusSFAKey!
+    var torusSFAKey: TorusKey!
     var singleFactorAuth: SingleFactorAuth!
+    var authDataResult: AuthDataResult!
     
     @Published var isLoggedIn: Bool = false
     
     func intialize() {
         Task {
-            let singleFactorAuthArgs = SingleFactorAuthArgs(network: .sapphire(.SAPPHIRE_MAINNET))
+            let singleFactorAuthArgs = SingleFactorAuthArgs(
+                web3AuthClientId: "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ",
+                network: .SAPPHIRE_MAINNET
+            )
             singleFactorAuth = SingleFactorAuth(singleFactorAuthArgs: singleFactorAuthArgs)
-//            let subVerifierDetails = SubVerifierDetails(
-//                loginType: .web,
-//                loginProvider: .google,
-//                clientId: "519228911939-cri01h55lsjbsia1k7ll6qpalrus75ps.apps.googleusercontent.com",
-//                verifier: "w3a-google-demo",
-//                redirectURL: "tdsdk://tdsdk/oauthCallback",
-//                browserRedirectURL: "https://scripts.toruswallet.io/redirect.html"
-//                
-//            )
-//            customAuth = CustomAuth.init(
-//                aggregateVerifierType: .singleLogin, 
-//                aggregateVerifier: "w3a-google-demo",
-//                subVerifierDetails: [subVerifierDetails],
-//                network: .sapphire(.SAPPHIRE_MAINNET)
-//            )
         }
     }
     
@@ -49,10 +38,9 @@ class CustomAuthViewModel: ObservableObject {
         
        
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-        guard let rootViewController = windowScene.windows.first?.rootViewController else { return }
-        
+            
        
-        GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController.presentedViewController!) { [unowned self] user, error in
+        GIDSignIn.sharedInstance.signIn(withPresenting: windowScene.keyWindow!.rootViewController!) { [unowned self] user, error in
             if(user != nil) {
                 authenticateUser(for: user!, with: error)
             } else {
@@ -67,16 +55,17 @@ class CustomAuthViewModel: ObservableObject {
         return
       }
       
-      guard let idToken = user?.user.idToken else { return }
+        guard let idToken = user?.user.idToken else { return }
         guard let accessToken = user?.user.accessToken else {return}
-      
+        
         let credential = GoogleAuthProvider.credential(withIDToken: idToken.tokenString, accessToken: accessToken.tokenString)
-      
-      Auth.auth().signIn(with: credential) { [unowned self] (_, error) in
+
+      Auth.auth().signIn(with: credential) { [unowned self] (result, error) in
         if let error = error {
           print(error.localizedDescription)
         } else {
-            self.isLoggedIn.toggle()
+            authDataResult = result!
+            loginWithSFA()
         }
       }
     }
@@ -86,14 +75,14 @@ class CustomAuthViewModel: ObservableObject {
     func loginWithSFA()  {
         Task {
             do {
-//                try await singleFactorAuth.getKey(
-//                    loginParams: LoginParams(
-//                    verifier: <#T##String#>, 
-//                    verifierId: <#T##String#>,
-//                    idToken: <#T##String#>
-//                    )
-//                )
-                torusKeyDetails = try await singleFactorAuth.
+                torusSFAKey = try await singleFactorAuth.getTorusKey(
+                    loginParams: LoginParams(
+                    verifier: "w3a-firebase-demo",
+                    verifierId: authDataResult.user.uid,
+                    idToken: try authDataResult.user.getIDToken()
+                    )
+                )
+                
                 DispatchQueue.main.async {
                     self.isLoggedIn.toggle()
                 }

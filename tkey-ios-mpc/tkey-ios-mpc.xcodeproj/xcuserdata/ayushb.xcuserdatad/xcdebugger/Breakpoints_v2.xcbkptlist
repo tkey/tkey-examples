@@ -14,8 +14,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "initialize()"
             landmarkType = "7">
             <Locations>
@@ -62,8 +62,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "initialize()"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "689"
-            endingLineNumber = "689"
+            startingLineNumber = "676"
+            endingLineNumber = "676"
             landmarkName = "showAlert(alertContent:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -88,48 +88,16 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "13996FEA-4BC2-4C07-AF93-31E78122B10E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "673"
-            endingLineNumber = "673"
+            startingLineNumber = "660"
+            endingLineNumber = "660"
             landmarkName = "signMessage(onSigned:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "13996FEA-4BC2-4C07-AF93-31E78122B10E - 9fec10b2d678ef94"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "tkey_ios_mpc.ThresholdKeyViewModel.signMessage(onSigned: (Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "tkey-ios-mpc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "673"
-                  endingLineNumber = "673"
-                  offsetFromSymbolStart = "260">
-               </Location>
-               <Location
-                  uuid = "13996FEA-4BC2-4C07-AF93-31E78122B10E - 69cefc27650d9a6a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in tkey_ios_mpc.ThresholdKeyViewModel.signMessage(onSigned: (Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "tkey-ios-mpc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "673"
-                  endingLineNumber = "673"
-                  offsetFromSymbolStart = "876">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,8 +110,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "702"
-            endingLineNumber = "702"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
             landmarkName = "prepareEthTssAccout(factorKey:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +126,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
+            startingLineNumber = "333"
+            endingLineNumber = "333"
             landmarkName = "addSecurityQuestion(question:answer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +142,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "698"
-            endingLineNumber = "698"
+            startingLineNumber = "685"
+            endingLineNumber = "685"
             landmarkName = "prepareEthTssAccout(factorKey:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +158,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "696"
-            endingLineNumber = "696"
+            startingLineNumber = "683"
+            endingLineNumber = "683"
             landmarkName = "prepareEthTssAccout(factorKey:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,8 +174,8 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "addSecurityQuestion(question:answer:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,129 +190,144 @@
             filePath = "tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "659"
-            endingLineNumber = "659"
+            startingLineNumber = "646"
+            endingLineNumber = "646"
             landmarkName = "saveNewTSSFactor(newFactorKey:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 31aa846bc9780ef9"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 9fec10b2d678d24b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "tkey_ios_mpc.ThresholdKeyViewModel.signMessage(onSigned: (Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "640"
+                  endingLineNumber = "640"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 94632b92f2bdb646"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
+                  moduleName = "tkey-ios-mpc"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "824">
                </Location>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 103af4dae753cafb"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - cf9d3b11099b7244"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "(3) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "2056">
                </Location>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 708a2b49b58686f5"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 9970497acf2ce7a"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(5) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "(5) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "1704">
                </Location>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 531d9bb943f842f7"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 43811416c0298a78"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(7) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "(7) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "1196">
                </Location>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - f9f42afd41b043e"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - f177d369fbbab301"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(10) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "(10) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "212">
                </Location>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 2f403ca37adea73f"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 1cafaae1f360ee00"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(11) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "(11) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "320">
                </Location>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - cc35fe96e180c238"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 8ae78059eb2e0d07"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(12) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "(12) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "372">
                </Location>
                <Location
-                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - ede6b88a144a7d39"
+                  uuid = "4F148A81-633C-4484-9A78-025E74BE1ECF - 385f9fd1e295a806"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(13) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_pkg.PrivateKey) async throws -&gt; ()"
+                  symbolName = "(13) suspend resume partial function for tkey_ios_mpc.ThresholdKeyViewModel.saveNewTSSFactor(newFactorKey: tkey_mpc_swift.PrivateKey) async throws -&gt; ()"
                   moduleName = "tkey-ios-mpc"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/ayushb/Work/web3auth/tkey-examples/tkey-ios-mpc/tkey-ios-mpc/ViewModels/ThresholdKeyViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "659"
-                  endingLineNumber = "659"
+                  startingLineNumber = "646"
+                  endingLineNumber = "646"
                   offsetFromSymbolStart = "384">
                </Location>
             </Locations>

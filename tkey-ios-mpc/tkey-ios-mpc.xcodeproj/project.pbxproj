@@ -12,7 +12,9 @@
 		28122A412BB4429E00B6FA63 /* EthereumClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28122A402BB4429E00B6FA63 /* EthereumClient.swift */; };
 		28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A432BB4431800B6FA63 /* web3-zksync.swift */; };
 		28122A462BB4431800B6FA63 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A452BB4431800B6FA63 /* web3.swift */; };
-		285FF2622BBC3F4000A526F5 /* SingleFactorAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2612BBC3F4000A526F5 /* SingleFactorAuth */; };
+		283C543E2BC014AC008CD381 /* SingleFactorAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 283C543D2BC014AC008CD381 /* SingleFactorAuth */; };
+		283C54412BC01576008CD381 /* tkey-mpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54402BC01576008CD381 /* tkey-mpc-swift */; };
+		283C54442BC02A85008CD381 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54432BC02A85008CD381 /* TorusUtils */; };
 		285FF2642BBC7D1800A526F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */; };
 		285FF2672BBC7D8C00A526F5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2662BBC7D8C00A526F5 /* FirebaseAuth */; };
 		285FF26A2BBC7DF700A526F5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2692BBC7DF700A526F5 /* GoogleSignIn */; };
@@ -24,12 +26,10 @@
 		2882D6742BADAE6B00B3E518 /* tkey_ios_mpcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6732BADAE6B00B3E518 /* tkey_ios_mpcTests.swift */; };
 		2882D67E2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67D2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift */; };
 		2882D6802BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67F2BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift */; };
-		2882D6912BADC5BD00B3E518 /* ThresholdKey in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D6902BADC5BD00B3E518 /* ThresholdKey */; };
 		2882D6942BADC5E800B3E518 /* CustomAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6932BADC5E800B3E518 /* CustomAuthViewModel.swift */; };
 		2882D6982BADCA0500B3E518 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6972BADCA0500B3E518 /* LoginView.swift */; };
 		2882D69A2BADCC4300B3E518 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6992BADCC4300B3E518 /* HomeView.swift */; };
 		2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */; };
-		2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D69E2BAE8D2F00B3E518 /* TorusUtils */; };
 		2882D6A22BAEC57C00B3E518 /* KeyChainInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,12 +78,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				285FF26C2BBC7DF700A526F5 /* GoogleSignInSwift in Frameworks */,
-				2882D6912BADC5BD00B3E518 /* ThresholdKey in Frameworks */,
+				283C54442BC02A85008CD381 /* TorusUtils in Frameworks */,
 				285FF26A2BBC7DF700A526F5 /* GoogleSignIn in Frameworks */,
+				283C54412BC01576008CD381 /* tkey-mpc-swift in Frameworks */,
+				283C543E2BC014AC008CD381 /* SingleFactorAuth in Frameworks */,
 				28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */,
 				28122A3F2BB2A04A00B6FA63 /* Web3SwiftMpcProvider in Frameworks */,
-				285FF2622BBC3F4000A526F5 /* SingleFactorAuth in Frameworks */,
-				2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */,
 				285FF2672BBC7D8C00A526F5 /* FirebaseAuth in Frameworks */,
 				28122A462BB4431800B6FA63 /* web3.swift in Frameworks */,
 			);
@@ -212,15 +212,15 @@
 			);
 			name = "tkey-ios-mpc";
 			packageProductDependencies = (
-				2882D6902BADC5BD00B3E518 /* ThresholdKey */,
-				2882D69E2BAE8D2F00B3E518 /* TorusUtils */,
 				28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */,
 				28122A432BB4431800B6FA63 /* web3-zksync.swift */,
 				28122A452BB4431800B6FA63 /* web3.swift */,
-				285FF2612BBC3F4000A526F5 /* SingleFactorAuth */,
 				285FF2662BBC7D8C00A526F5 /* FirebaseAuth */,
 				285FF2692BBC7DF700A526F5 /* GoogleSignIn */,
 				285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */,
+				283C543D2BC014AC008CD381 /* SingleFactorAuth */,
+				283C54402BC01576008CD381 /* tkey-mpc-swift */,
+				283C54432BC02A85008CD381 /* TorusUtils */,
 			);
 			productName = "tkey-ios-mpc";
 			productReference = 2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */;
@@ -295,13 +295,13 @@
 			);
 			mainGroup = 2882D6562BADAE6900B3E518;
 			packageReferences = (
-				2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */,
-				2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */,
 				28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */,
 				28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */,
-				285FF2602BBC3F4000A526F5 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */,
 				285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				283C543C2BC014AC008CD381 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */,
+				283C543F2BC01575008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */,
+				283C54422BC02A85008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */,
 			);
 			productRefGroup = 2882D6602BADAE6900B3E518 /* Products */;
 			projectDirPath = "";
@@ -704,12 +704,28 @@
 				version = 1.6.1;
 			};
 		};
-		285FF2602BBC3F4000A526F5 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */ = {
+		283C543C2BC014AC008CD381 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Web3Auth/single-factor-auth-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
+				minimumVersion = 4.0.0;
+			};
+		};
+		283C543F2BC01575008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tkey/tkey-mpc-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+		283C54422BC02A85008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/torusresearch/torus-utils-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
 			};
 		};
 		285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
@@ -726,22 +742,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.1.0;
-			};
-		};
-		2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tkey/tkey-mpc-swift";
-			requirement = {
-				kind = exactVersion;
-				version = 1.1.0;
-			};
-		};
-		2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/torusresearch/torus-utils-swift";
-			requirement = {
-				branch = master;
-				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -762,10 +762,20 @@
 			package = 28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */;
 			productName = web3.swift;
 		};
-		285FF2612BBC3F4000A526F5 /* SingleFactorAuth */ = {
+		283C543D2BC014AC008CD381 /* SingleFactorAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 285FF2602BBC3F4000A526F5 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */;
+			package = 283C543C2BC014AC008CD381 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */;
 			productName = SingleFactorAuth;
+		};
+		283C54402BC01576008CD381 /* tkey-mpc-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283C543F2BC01575008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */;
+			productName = "tkey-mpc-swift";
+		};
+		283C54432BC02A85008CD381 /* TorusUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283C54422BC02A85008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */;
+			productName = TorusUtils;
 		};
 		285FF2662BBC7D8C00A526F5 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -781,16 +791,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
-		};
-		2882D6902BADC5BD00B3E518 /* ThresholdKey */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */;
-			productName = ThresholdKey;
-		};
-		2882D69E2BAE8D2F00B3E518 /* TorusUtils */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */;
-			productName = TorusUtils;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
