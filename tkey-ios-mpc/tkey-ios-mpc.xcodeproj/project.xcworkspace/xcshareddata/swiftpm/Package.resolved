@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/torusresearch/customauth-swift-sdk",
       "state" : {
-        "revision" : "57bd8dad1ab4b6c320945fdd84d09ea0f6f81486",
-        "version" : "7.0.0"
+        "revision" : "bb0c8249b6f0e2866e51e47bebdc801848fae45a",
+        "version" : "9.0.0"
       }
     },
     {
@@ -194,8 +194,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/tkey/tkey-mpc-swift",
       "state" : {
-        "revision" : "afd10e64b6b28793b5fd981a53c29373759e3242",
-        "version" : "1.1.0"
+        "revision" : "0b1020f2fe0c3790bc50aa133bb613ff1b55172f",
+        "version" : "2.1.0"
       }
     },
     {
@@ -203,8 +203,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/torusresearch/torus-utils-swift",
       "state" : {
-        "branch" : "master",
-        "revision" : "3fb829e71caa275556a067a1ffa1ca579bafbf8e"
+        "revision" : "04c62fd5f73f21bd01b7c07e08f6135db26c5940",
+        "version" : "8.0.0"
       }
     },
     {

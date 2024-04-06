@@ -12,6 +12,9 @@
 		28122A412BB4429E00B6FA63 /* EthereumClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28122A402BB4429E00B6FA63 /* EthereumClient.swift */; };
 		28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A432BB4431800B6FA63 /* web3-zksync.swift */; };
 		28122A462BB4431800B6FA63 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A452BB4431800B6FA63 /* web3.swift */; };
+		283C54472BC03B5E008CD381 /* tkey-mpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54462BC03B5E008CD381 /* tkey-mpc-swift */; };
+		283C544A2BC03B6C008CD381 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54492BC03B6C008CD381 /* TorusUtils */; };
+		283C544D2BC03B84008CD381 /* CustomAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 283C544C2BC03B84008CD381 /* CustomAuth */; };
 		2882D6632BADAE6900B3E518 /* tkey_ios_mpcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */; };
 		2882D6652BADAE6900B3E518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6642BADAE6900B3E518 /* ContentView.swift */; };
 		2882D6672BADAE6B00B3E518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882D6662BADAE6B00B3E518 /* Assets.xcassets */; };
@@ -19,14 +22,11 @@
 		2882D6742BADAE6B00B3E518 /* tkey_ios_mpcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6732BADAE6B00B3E518 /* tkey_ios_mpcTests.swift */; };
 		2882D67E2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67D2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift */; };
 		2882D6802BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67F2BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift */; };
-		2882D6912BADC5BD00B3E518 /* ThresholdKey in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D6902BADC5BD00B3E518 /* ThresholdKey */; };
 		2882D6942BADC5E800B3E518 /* CustomAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6932BADC5E800B3E518 /* CustomAuthViewModel.swift */; };
 		2882D6982BADCA0500B3E518 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6972BADCA0500B3E518 /* LoginView.swift */; };
 		2882D69A2BADCC4300B3E518 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6992BADCC4300B3E518 /* HomeView.swift */; };
 		2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */; };
-		2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D69E2BAE8D2F00B3E518 /* TorusUtils */; };
 		2882D6A22BAEC57C00B3E518 /* KeyChainInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */; };
-		2882D6A82BB12D9600B3E518 /* CustomAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2882D6A72BB12D9600B3E518 /* CustomAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,12 +71,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2882D6912BADC5BD00B3E518 /* ThresholdKey in Frameworks */,
 				28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */,
+				283C544D2BC03B84008CD381 /* CustomAuth in Frameworks */,
 				28122A3F2BB2A04A00B6FA63 /* Web3SwiftMpcProvider in Frameworks */,
-				2882D69F2BAE8D2F00B3E518 /* TorusUtils in Frameworks */,
+				283C54472BC03B5E008CD381 /* tkey-mpc-swift in Frameworks */,
+				283C544A2BC03B6C008CD381 /* TorusUtils in Frameworks */,
 				28122A462BB4431800B6FA63 /* web3.swift in Frameworks */,
-				2882D6A82BB12D9600B3E518 /* CustomAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,12 +201,12 @@
 			);
 			name = "tkey-ios-mpc";
 			packageProductDependencies = (
-				2882D6902BADC5BD00B3E518 /* ThresholdKey */,
-				2882D69E2BAE8D2F00B3E518 /* TorusUtils */,
-				2882D6A72BB12D9600B3E518 /* CustomAuth */,
 				28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */,
 				28122A432BB4431800B6FA63 /* web3-zksync.swift */,
 				28122A452BB4431800B6FA63 /* web3.swift */,
+				283C54462BC03B5E008CD381 /* tkey-mpc-swift */,
+				283C54492BC03B6C008CD381 /* TorusUtils */,
+				283C544C2BC03B84008CD381 /* CustomAuth */,
 			);
 			productName = "tkey-ios-mpc";
 			productReference = 2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */;
@@ -281,11 +281,11 @@
 			);
 			mainGroup = 2882D6562BADAE6900B3E518;
 			packageReferences = (
-				2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */,
-				2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */,
-				2882D6A62BB12D9600B3E518 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */,
 				28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */,
 				28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */,
+				283C54452BC03B5E008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */,
+				283C54482BC03B6C008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */,
+				283C544B2BC03B84008CD381 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */,
 			);
 			productRefGroup = 2882D6602BADAE6900B3E518 /* Products */;
 			projectDirPath = "";
@@ -685,28 +685,28 @@
 				version = 1.6.1;
 			};
 		};
-		2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */ = {
+		283C54452BC03B5E008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tkey/tkey-mpc-swift";
 			requirement = {
-				kind = exactVersion;
-				version = 1.1.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
 			};
 		};
-		2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */ = {
+		283C54482BC03B6C008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/torusresearch/torus-utils-swift";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
 			};
 		};
-		2882D6A62BB12D9600B3E518 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */ = {
+		283C544B2BC03B84008CD381 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/torusresearch/customauth-swift-sdk";
 			requirement = {
-				kind = exactVersion;
-				version = 7.0.0;
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -727,19 +727,19 @@
 			package = 28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */;
 			productName = web3.swift;
 		};
-		2882D6902BADC5BD00B3E518 /* ThresholdKey */ = {
+		283C54462BC03B5E008CD381 /* tkey-mpc-swift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2882D68F2BADC5BD00B3E518 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */;
-			productName = ThresholdKey;
+			package = 283C54452BC03B5E008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */;
+			productName = "tkey-mpc-swift";
 		};
-		2882D69E2BAE8D2F00B3E518 /* TorusUtils */ = {
+		283C54492BC03B6C008CD381 /* TorusUtils */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2882D69D2BAE8D2F00B3E518 /* XCRemoteSwiftPackageReference "torus-utils-swift" */;
+			package = 283C54482BC03B6C008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */;
 			productName = TorusUtils;
 		};
-		2882D6A72BB12D9600B3E518 /* CustomAuth */ = {
+		283C544C2BC03B84008CD381 /* CustomAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2882D6A62BB12D9600B3E518 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */;
+			package = 283C544B2BC03B84008CD381 /* XCRemoteSwiftPackageReference "customauth-swift-sdk" */;
 			productName = CustomAuth;
 		};
 /* End XCSwiftPackageProductDependency section */

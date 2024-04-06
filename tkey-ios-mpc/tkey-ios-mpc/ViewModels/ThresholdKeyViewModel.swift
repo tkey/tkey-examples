@@ -7,7 +7,6 @@
 
 import Foundation
 import CustomAuth
-import tkey_pkg
 import TorusUtils
 import FetchNodeDetails
 import CommonSources
@@ -15,6 +14,7 @@ import Web3SwiftMpcProvider
 import web3
 import CryptoSwift
 import UIKit
+import tkey_mpc_swift
 
 class ThresholdKeyViewModel: ObservableObject {
     
@@ -95,7 +95,8 @@ class ThresholdKeyViewModel: ObservableObject {
                 
                 torusUtils = TorusUtils(
                     enableOneKey: true,
-                    network: .sapphire(.SAPPHIRE_MAINNET)
+                    network: .sapphire(.SAPPHIRE_MAINNET), 
+                    clientId: "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ"
                 )
                 
                 let nodeDetailsManager = NodeDetailManager(
