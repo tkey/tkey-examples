@@ -1,0 +1,798 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28122A3C2BB28E9C00B6FA63 /* ThresholdKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */; };
+		28122A3F2BB2A04A00B6FA63 /* Web3SwiftMpcProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */; };
+		28122A412BB4429E00B6FA63 /* EthereumClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28122A402BB4429E00B6FA63 /* EthereumClient.swift */; };
+		28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A432BB4431800B6FA63 /* web3-zksync.swift */; };
+		28122A462BB4431800B6FA63 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 28122A452BB4431800B6FA63 /* web3.swift */; };
+		283C543E2BC014AC008CD381 /* SingleFactorAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 283C543D2BC014AC008CD381 /* SingleFactorAuth */; };
+		283C54412BC01576008CD381 /* tkey-mpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54402BC01576008CD381 /* tkey-mpc-swift */; };
+		283C54442BC02A85008CD381 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54432BC02A85008CD381 /* TorusUtils */; };
+		285FF2642BBC7D1800A526F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */; };
+		285FF2672BBC7D8C00A526F5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2662BBC7D8C00A526F5 /* FirebaseAuth */; };
+		285FF26A2BBC7DF700A526F5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2692BBC7DF700A526F5 /* GoogleSignIn */; };
+		285FF26C2BBC7DF700A526F5 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */; };
+		2882D6632BADAE6900B3E518 /* tkey_ios_mpcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */; };
+		2882D6652BADAE6900B3E518 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6642BADAE6900B3E518 /* ContentView.swift */; };
+		2882D6672BADAE6B00B3E518 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882D6662BADAE6B00B3E518 /* Assets.xcassets */; };
+		2882D66A2BADAE6B00B3E518 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2882D6692BADAE6B00B3E518 /* Preview Assets.xcassets */; };
+		2882D6742BADAE6B00B3E518 /* tkey_ios_mpcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6732BADAE6B00B3E518 /* tkey_ios_mpcTests.swift */; };
+		2882D67E2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67D2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift */; };
+		2882D6802BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67F2BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift */; };
+		2882D6942BADC5E800B3E518 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6932BADC5E800B3E518 /* ViewModel.swift */; };
+		2882D6982BADCA0500B3E518 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6972BADCA0500B3E518 /* LoginView.swift */; };
+		2882D69A2BADCC4300B3E518 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6992BADCC4300B3E518 /* HomeView.swift */; };
+		2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */; };
+		2882D6A22BAEC57C00B3E518 /* KeyChainInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2882D6702BADAE6B00B3E518 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2882D6572BADAE6900B3E518 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2882D65E2BADAE6900B3E518;
+			remoteInfo = "tkey-ios-mpc";
+		};
+		2882D67A2BADAE6B00B3E518 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2882D6572BADAE6900B3E518 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2882D65E2BADAE6900B3E518;
+			remoteInfo = "tkey-ios-mpc";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdKeyView.swift; sourceTree = "<group>"; };
+		28122A402BB4429E00B6FA63 /* EthereumClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumClient.swift; sourceTree = "<group>"; };
+		285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		285FF26D2BBC7F6300A526F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2882D65F2BADAE6900B3E518 /* tkey-mpc-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tkey-mpc-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcApp.swift; sourceTree = "<group>"; };
+		2882D6642BADAE6900B3E518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2882D6662BADAE6B00B3E518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2882D6692BADAE6B00B3E518 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2882D66F2BADAE6B00B3E518 /* tkey-mpc-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tkey-mpc-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882D6732BADAE6B00B3E518 /* tkey_ios_mpcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcTests.swift; sourceTree = "<group>"; };
+		2882D6792BADAE6B00B3E518 /* tkey-mpc-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tkey-mpc-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882D67D2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcUITests.swift; sourceTree = "<group>"; };
+		2882D67F2BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2882D6932BADC5E800B3E518 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		2882D6972BADCA0500B3E518 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2882D6992BADCC4300B3E518 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdKeyViewModel.swift; sourceTree = "<group>"; };
+		2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainInterface.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2882D65C2BADAE6900B3E518 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				285FF26C2BBC7DF700A526F5 /* GoogleSignInSwift in Frameworks */,
+				283C54442BC02A85008CD381 /* TorusUtils in Frameworks */,
+				285FF26A2BBC7DF700A526F5 /* GoogleSignIn in Frameworks */,
+				283C54412BC01576008CD381 /* tkey-mpc-swift in Frameworks */,
+				283C543E2BC014AC008CD381 /* SingleFactorAuth in Frameworks */,
+				28122A442BB4431800B6FA63 /* web3-zksync.swift in Frameworks */,
+				28122A3F2BB2A04A00B6FA63 /* Web3SwiftMpcProvider in Frameworks */,
+				285FF2672BBC7D8C00A526F5 /* FirebaseAuth in Frameworks */,
+				28122A462BB4431800B6FA63 /* web3.swift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882D66C2BADAE6B00B3E518 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882D6762BADAE6B00B3E518 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2882D6562BADAE6900B3E518 = {
+			isa = PBXGroup;
+			children = (
+				2882D6602BADAE6900B3E518 /* Products */,
+				2882D6612BADAE6900B3E518 /* tkey-ios-mpc */,
+				2882D6722BADAE6B00B3E518 /* tkey-ios-mpcTests */,
+				2882D67C2BADAE6B00B3E518 /* tkey-ios-mpcUITests */,
+			);
+			sourceTree = "<group>";
+		};
+		2882D6602BADAE6900B3E518 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2882D65F2BADAE6900B3E518 /* tkey-mpc-ios.app */,
+				2882D66F2BADAE6B00B3E518 /* tkey-mpc-iosTests.xctest */,
+				2882D6792BADAE6B00B3E518 /* tkey-mpc-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2882D6612BADAE6900B3E518 /* tkey-ios-mpc */ = {
+			isa = PBXGroup;
+			children = (
+				285FF26D2BBC7F6300A526F5 /* Info.plist */,
+				285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */,
+				2882D6A02BAEC57000B3E518 /* Helpers */,
+				2882D6962BADC9F900B3E518 /* Views */,
+				2882D6922BADC5CB00B3E518 /* ViewModels */,
+				2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */,
+				2882D6662BADAE6B00B3E518 /* Assets.xcassets */,
+				2882D6682BADAE6B00B3E518 /* Preview Content */,
+			);
+			path = "tkey-ios-mpc";
+			sourceTree = "<group>";
+		};
+		2882D6682BADAE6B00B3E518 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2882D6692BADAE6B00B3E518 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2882D6722BADAE6B00B3E518 /* tkey-ios-mpcTests */ = {
+			isa = PBXGroup;
+			children = (
+				2882D6732BADAE6B00B3E518 /* tkey_ios_mpcTests.swift */,
+			);
+			path = "tkey-ios-mpcTests";
+			sourceTree = "<group>";
+		};
+		2882D67C2BADAE6B00B3E518 /* tkey-ios-mpcUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2882D67D2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift */,
+				2882D67F2BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift */,
+			);
+			path = "tkey-ios-mpcUITests";
+			sourceTree = "<group>";
+		};
+		2882D6922BADC5CB00B3E518 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2882D6932BADC5E800B3E518 /* ViewModel.swift */,
+				2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2882D6962BADC9F900B3E518 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2882D6642BADAE6900B3E518 /* ContentView.swift */,
+				2882D6972BADCA0500B3E518 /* LoginView.swift */,
+				2882D6992BADCC4300B3E518 /* HomeView.swift */,
+				28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2882D6A02BAEC57000B3E518 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2882D6A12BAEC57C00B3E518 /* KeyChainInterface.swift */,
+				28122A402BB4429E00B6FA63 /* EthereumClient.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2882D6832BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-ios" */;
+			buildPhases = (
+				2882D65B2BADAE6900B3E518 /* Sources */,
+				2882D65C2BADAE6900B3E518 /* Frameworks */,
+				2882D65D2BADAE6900B3E518 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tkey-mpc-ios";
+			packageProductDependencies = (
+				28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */,
+				28122A432BB4431800B6FA63 /* web3-zksync.swift */,
+				28122A452BB4431800B6FA63 /* web3.swift */,
+				285FF2662BBC7D8C00A526F5 /* FirebaseAuth */,
+				285FF2692BBC7DF700A526F5 /* GoogleSignIn */,
+				285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */,
+				283C543D2BC014AC008CD381 /* SingleFactorAuth */,
+				283C54402BC01576008CD381 /* tkey-mpc-swift */,
+				283C54432BC02A85008CD381 /* TorusUtils */,
+			);
+			productName = "tkey-ios-mpc";
+			productReference = 2882D65F2BADAE6900B3E518 /* tkey-mpc-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2882D66E2BADAE6B00B3E518 /* tkey-mpc-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2882D6862BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosTests" */;
+			buildPhases = (
+				2882D66B2BADAE6B00B3E518 /* Sources */,
+				2882D66C2BADAE6B00B3E518 /* Frameworks */,
+				2882D66D2BADAE6B00B3E518 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2882D6712BADAE6B00B3E518 /* PBXTargetDependency */,
+			);
+			name = "tkey-mpc-iosTests";
+			productName = "tkey-ios-mpcTests";
+			productReference = 2882D66F2BADAE6B00B3E518 /* tkey-mpc-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2882D6782BADAE6B00B3E518 /* tkey-mpc-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2882D6892BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosUITests" */;
+			buildPhases = (
+				2882D6752BADAE6B00B3E518 /* Sources */,
+				2882D6762BADAE6B00B3E518 /* Frameworks */,
+				2882D6772BADAE6B00B3E518 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2882D67B2BADAE6B00B3E518 /* PBXTargetDependency */,
+			);
+			name = "tkey-mpc-iosUITests";
+			productName = "tkey-ios-mpcUITests";
+			productReference = 2882D6792BADAE6B00B3E518 /* tkey-mpc-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2882D6572BADAE6900B3E518 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					2882D65E2BADAE6900B3E518 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					2882D66E2BADAE6B00B3E518 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 2882D65E2BADAE6900B3E518;
+					};
+					2882D6782BADAE6B00B3E518 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 2882D65E2BADAE6900B3E518;
+					};
+				};
+			};
+			buildConfigurationList = 2882D65A2BADAE6900B3E518 /* Build configuration list for PBXProject "tkey-mpc-ios" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2882D6562BADAE6900B3E518;
+			packageReferences = (
+				28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */,
+				28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */,
+				285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				283C543C2BC014AC008CD381 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */,
+				283C543F2BC01575008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */,
+				283C54422BC02A85008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */,
+			);
+			productRefGroup = 2882D6602BADAE6900B3E518 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */,
+				2882D66E2BADAE6B00B3E518 /* tkey-mpc-iosTests */,
+				2882D6782BADAE6B00B3E518 /* tkey-mpc-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2882D65D2BADAE6900B3E518 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882D66A2BADAE6B00B3E518 /* Preview Assets.xcassets in Resources */,
+				2882D6672BADAE6B00B3E518 /* Assets.xcassets in Resources */,
+				285FF2642BBC7D1800A526F5 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882D66D2BADAE6B00B3E518 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882D6772BADAE6B00B3E518 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2882D65B2BADAE6900B3E518 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882D6652BADAE6900B3E518 /* ContentView.swift in Sources */,
+				2882D6942BADC5E800B3E518 /* ViewModel.swift in Sources */,
+				28122A3C2BB28E9C00B6FA63 /* ThresholdKeyView.swift in Sources */,
+				2882D6982BADCA0500B3E518 /* LoginView.swift in Sources */,
+				2882D69A2BADCC4300B3E518 /* HomeView.swift in Sources */,
+				2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */,
+				2882D6632BADAE6900B3E518 /* tkey_ios_mpcApp.swift in Sources */,
+				2882D6A22BAEC57C00B3E518 /* KeyChainInterface.swift in Sources */,
+				28122A412BB4429E00B6FA63 /* EthereumClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882D66B2BADAE6B00B3E518 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882D6742BADAE6B00B3E518 /* tkey_ios_mpcTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2882D6752BADAE6B00B3E518 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2882D6802BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift in Sources */,
+				2882D67E2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2882D6712BADAE6B00B3E518 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */;
+			targetProxy = 2882D6702BADAE6B00B3E518 /* PBXContainerItemProxy */;
+		};
+		2882D67B2BADAE6B00B3E518 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */;
+			targetProxy = 2882D67A2BADAE6B00B3E518 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2882D6812BADAE6B00B3E518 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2882D6822BADAE6B00B3E518 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2882D6842BADAE6B00B3E518 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tkey-ios-mpc/Preview Content\"";
+				DEVELOPMENT_TEAM = HYCGKU63WD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "tkey-ios-mpc/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.w3a.tkey-ios-mpc";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2882D6852BADAE6B00B3E518 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"tkey-ios-mpc/Preview Content\"";
+				DEVELOPMENT_TEAM = HYCGKU63WD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "tkey-ios-mpc/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.w3a.tkey-ios-mpc";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2882D6872BADAE6B00B3E518 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HYCGKU63WD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.w3a.tkey-ios-mpcTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tkey-mpc-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tkey-mpc-ios";
+			};
+			name = Debug;
+		};
+		2882D6882BADAE6B00B3E518 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HYCGKU63WD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.w3a.tkey-ios-mpcTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tkey-mpc-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tkey-mpc-ios";
+			};
+			name = Release;
+		};
+		2882D68A2BADAE6B00B3E518 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HYCGKU63WD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.w3a.tkey-ios-mpcUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "tkey-ios-mpc";
+			};
+			name = Debug;
+		};
+		2882D68B2BADAE6B00B3E518 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = HYCGKU63WD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.w3a.tkey-ios-mpcUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "tkey-ios-mpc";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2882D65A2BADAE6900B3E518 /* Build configuration list for PBXProject "tkey-mpc-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882D6812BADAE6B00B3E518 /* Debug */,
+				2882D6822BADAE6B00B3E518 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2882D6832BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882D6842BADAE6B00B3E518 /* Debug */,
+				2882D6852BADAE6B00B3E518 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2882D6862BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882D6872BADAE6B00B3E518 /* Debug */,
+				2882D6882BADAE6B00B3E518 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2882D6892BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2882D68A2BADAE6B00B3E518 /* Debug */,
+				2882D68B2BADAE6B00B3E518 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tkey/web3-swift-mpc-provider";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
+		28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argentlabs/web3.swift";
+			requirement = {
+				kind = exactVersion;
+				version = 1.6.1;
+			};
+		};
+		283C543C2BC014AC008CD381 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Web3Auth/single-factor-auth-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		283C543F2BC01575008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tkey/tkey-mpc-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
+		283C54422BC02A85008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/torusresearch/torus-utils-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.1;
+			};
+		};
+		285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28122A3D2BB2A04A00B6FA63 /* XCRemoteSwiftPackageReference "web3-swift-mpc-provider" */;
+			productName = Web3SwiftMpcProvider;
+		};
+		28122A432BB4431800B6FA63 /* web3-zksync.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = "web3-zksync.swift";
+		};
+		28122A452BB4431800B6FA63 /* web3.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28122A422BB4431800B6FA63 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = web3.swift;
+		};
+		283C543D2BC014AC008CD381 /* SingleFactorAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283C543C2BC014AC008CD381 /* XCRemoteSwiftPackageReference "single-factor-auth-swift" */;
+			productName = SingleFactorAuth;
+		};
+		283C54402BC01576008CD381 /* tkey-mpc-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283C543F2BC01575008CD381 /* XCRemoteSwiftPackageReference "tkey-mpc-swift" */;
+			productName = "tkey-mpc-swift";
+		};
+		283C54432BC02A85008CD381 /* TorusUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 283C54422BC02A85008CD381 /* XCRemoteSwiftPackageReference "torus-utils-swift" */;
+			productName = TorusUtils;
+		};
+		285FF2662BBC7D8C00A526F5 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285FF2652BBC7D8C00A526F5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		285FF2692BBC7DF700A526F5 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 285FF2682BBC7DF700A526F5 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2882D6572BADAE6900B3E518 /* Project object */;
+}
