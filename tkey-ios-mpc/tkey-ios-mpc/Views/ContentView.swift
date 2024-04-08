@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var customAuthViewModel: CustomAuthViewModel
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
-            if customAuthViewModel.isLoggedIn {
+            if viewModel.isLoggedIn {
                 ThresholdKeyView(thresholdKeyViewModel: ThresholdKeyViewModel(
-                    customAuthViewModel: customAuthViewModel
+                    viewModel: viewModel
                 ))
                 
             } else {
-                LoginView(customAuthViewModel: customAuthViewModel)
+                LoginView(viewModel: viewModel)
             }
         }
     }
 }
 
 #Preview {
-    ContentView(customAuthViewModel: CustomAuthViewModel())
+    ContentView(viewModel: ViewModel())
 }

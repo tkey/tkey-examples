@@ -22,7 +22,7 @@ struct tkey_ios_mpcApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(customAuthViewModel: CustomAuthViewModel())
+            ContentView(viewModel: ViewModel())
         }
     }
 }

@@ -10,25 +10,25 @@ import Foundation
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject var customAuthViewModel: CustomAuthViewModel
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
         VStack(spacing: 16) {
             Spacer()
             Text("tKey iOS MPC Demo").font(.title).multilineTextAlignment(.center)
             Button(action: {
-                customAuthViewModel.login()
+                viewModel.login()
             }, label: {
                 Text("Sign in with Google")
             }).buttonStyle(.bordered)
             Spacer()
         }.onAppear {
-            customAuthViewModel.intialize()
+            viewModel.intialize()
         }
         
     }
 }
 
 #Preview {
-    LoginView(customAuthViewModel: CustomAuthViewModel())
+    LoginView(viewModel: ViewModel())
 }

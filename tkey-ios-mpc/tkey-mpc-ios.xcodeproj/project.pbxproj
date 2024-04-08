@@ -26,7 +26,7 @@
 		2882D6742BADAE6B00B3E518 /* tkey_ios_mpcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6732BADAE6B00B3E518 /* tkey_ios_mpcTests.swift */; };
 		2882D67E2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67D2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift */; };
 		2882D6802BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D67F2BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift */; };
-		2882D6942BADC5E800B3E518 /* CustomAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6932BADC5E800B3E518 /* CustomAuthViewModel.swift */; };
+		2882D6942BADC5E800B3E518 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6932BADC5E800B3E518 /* ViewModel.swift */; };
 		2882D6982BADCA0500B3E518 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6972BADCA0500B3E518 /* LoginView.swift */; };
 		2882D69A2BADCC4300B3E518 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D6992BADCC4300B3E518 /* HomeView.swift */; };
 		2882D69C2BADCD2400B3E518 /* ThresholdKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */; };
@@ -55,17 +55,17 @@
 		28122A402BB4429E00B6FA63 /* EthereumClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumClient.swift; sourceTree = "<group>"; };
 		285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		285FF26D2BBC7F6300A526F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tkey-ios-mpc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882D65F2BADAE6900B3E518 /* tkey-mpc-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tkey-mpc-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcApp.swift; sourceTree = "<group>"; };
 		2882D6642BADAE6900B3E518 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2882D6662BADAE6B00B3E518 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2882D6692BADAE6B00B3E518 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2882D66F2BADAE6B00B3E518 /* tkey-ios-mpcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tkey-ios-mpcTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882D66F2BADAE6B00B3E518 /* tkey-mpc-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tkey-mpc-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882D6732BADAE6B00B3E518 /* tkey_ios_mpcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcTests.swift; sourceTree = "<group>"; };
-		2882D6792BADAE6B00B3E518 /* tkey-ios-mpcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tkey-ios-mpcUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2882D6792BADAE6B00B3E518 /* tkey-mpc-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tkey-mpc-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882D67D2BADAE6B00B3E518 /* tkey_ios_mpcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcUITests.swift; sourceTree = "<group>"; };
 		2882D67F2BADAE6B00B3E518 /* tkey_ios_mpcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2882D6932BADC5E800B3E518 /* CustomAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAuthViewModel.swift; sourceTree = "<group>"; };
+		2882D6932BADC5E800B3E518 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		2882D6972BADCA0500B3E518 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2882D6992BADCC4300B3E518 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdKeyViewModel.swift; sourceTree = "<group>"; };
@@ -109,19 +109,19 @@
 		2882D6562BADAE6900B3E518 = {
 			isa = PBXGroup;
 			children = (
+				2882D6602BADAE6900B3E518 /* Products */,
 				2882D6612BADAE6900B3E518 /* tkey-ios-mpc */,
 				2882D6722BADAE6B00B3E518 /* tkey-ios-mpcTests */,
 				2882D67C2BADAE6B00B3E518 /* tkey-ios-mpcUITests */,
-				2882D6602BADAE6900B3E518 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
 		2882D6602BADAE6900B3E518 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */,
-				2882D66F2BADAE6B00B3E518 /* tkey-ios-mpcTests.xctest */,
-				2882D6792BADAE6B00B3E518 /* tkey-ios-mpcUITests.xctest */,
+				2882D65F2BADAE6900B3E518 /* tkey-mpc-ios.app */,
+				2882D66F2BADAE6B00B3E518 /* tkey-mpc-iosTests.xctest */,
+				2882D6792BADAE6B00B3E518 /* tkey-mpc-iosUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 		2882D6922BADC5CB00B3E518 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				2882D6932BADC5E800B3E518 /* CustomAuthViewModel.swift */,
+				2882D6932BADC5E800B3E518 /* ViewModel.swift */,
 				2882D69B2BADCD2400B3E518 /* ThresholdKeyViewModel.swift */,
 			);
 			path = ViewModels;
@@ -198,9 +198,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2882D65E2BADAE6900B3E518 /* tkey-ios-mpc */ = {
+		2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2882D6832BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-ios-mpc" */;
+			buildConfigurationList = 2882D6832BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-ios" */;
 			buildPhases = (
 				2882D65B2BADAE6900B3E518 /* Sources */,
 				2882D65C2BADAE6900B3E518 /* Frameworks */,
@@ -210,7 +210,7 @@
 			);
 			dependencies = (
 			);
-			name = "tkey-ios-mpc";
+			name = "tkey-mpc-ios";
 			packageProductDependencies = (
 				28122A3E2BB2A04A00B6FA63 /* Web3SwiftMpcProvider */,
 				28122A432BB4431800B6FA63 /* web3-zksync.swift */,
@@ -223,12 +223,12 @@
 				283C54432BC02A85008CD381 /* TorusUtils */,
 			);
 			productName = "tkey-ios-mpc";
-			productReference = 2882D65F2BADAE6900B3E518 /* tkey-ios-mpc.app */;
+			productReference = 2882D65F2BADAE6900B3E518 /* tkey-mpc-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2882D66E2BADAE6B00B3E518 /* tkey-ios-mpcTests */ = {
+		2882D66E2BADAE6B00B3E518 /* tkey-mpc-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2882D6862BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-ios-mpcTests" */;
+			buildConfigurationList = 2882D6862BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosTests" */;
 			buildPhases = (
 				2882D66B2BADAE6B00B3E518 /* Sources */,
 				2882D66C2BADAE6B00B3E518 /* Frameworks */,
@@ -239,14 +239,14 @@
 			dependencies = (
 				2882D6712BADAE6B00B3E518 /* PBXTargetDependency */,
 			);
-			name = "tkey-ios-mpcTests";
+			name = "tkey-mpc-iosTests";
 			productName = "tkey-ios-mpcTests";
-			productReference = 2882D66F2BADAE6B00B3E518 /* tkey-ios-mpcTests.xctest */;
+			productReference = 2882D66F2BADAE6B00B3E518 /* tkey-mpc-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2882D6782BADAE6B00B3E518 /* tkey-ios-mpcUITests */ = {
+		2882D6782BADAE6B00B3E518 /* tkey-mpc-iosUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2882D6892BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-ios-mpcUITests" */;
+			buildConfigurationList = 2882D6892BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosUITests" */;
 			buildPhases = (
 				2882D6752BADAE6B00B3E518 /* Sources */,
 				2882D6762BADAE6B00B3E518 /* Frameworks */,
@@ -257,9 +257,9 @@
 			dependencies = (
 				2882D67B2BADAE6B00B3E518 /* PBXTargetDependency */,
 			);
-			name = "tkey-ios-mpcUITests";
+			name = "tkey-mpc-iosUITests";
 			productName = "tkey-ios-mpcUITests";
-			productReference = 2882D6792BADAE6B00B3E518 /* tkey-ios-mpcUITests.xctest */;
+			productReference = 2882D6792BADAE6B00B3E518 /* tkey-mpc-iosUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -285,7 +285,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2882D65A2BADAE6900B3E518 /* Build configuration list for PBXProject "tkey-ios-mpc" */;
+			buildConfigurationList = 2882D65A2BADAE6900B3E518 /* Build configuration list for PBXProject "tkey-mpc-ios" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -307,9 +307,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2882D65E2BADAE6900B3E518 /* tkey-ios-mpc */,
-				2882D66E2BADAE6B00B3E518 /* tkey-ios-mpcTests */,
-				2882D6782BADAE6B00B3E518 /* tkey-ios-mpcUITests */,
+				2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */,
+				2882D66E2BADAE6B00B3E518 /* tkey-mpc-iosTests */,
+				2882D6782BADAE6B00B3E518 /* tkey-mpc-iosUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -347,7 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2882D6652BADAE6900B3E518 /* ContentView.swift in Sources */,
-				2882D6942BADC5E800B3E518 /* CustomAuthViewModel.swift in Sources */,
+				2882D6942BADC5E800B3E518 /* ViewModel.swift in Sources */,
 				28122A3C2BB28E9C00B6FA63 /* ThresholdKeyView.swift in Sources */,
 				2882D6982BADCA0500B3E518 /* LoginView.swift in Sources */,
 				2882D69A2BADCC4300B3E518 /* HomeView.swift in Sources */,
@@ -380,12 +380,12 @@
 /* Begin PBXTargetDependency section */
 		2882D6712BADAE6B00B3E518 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2882D65E2BADAE6900B3E518 /* tkey-ios-mpc */;
+			target = 2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */;
 			targetProxy = 2882D6702BADAE6B00B3E518 /* PBXContainerItemProxy */;
 		};
 		2882D67B2BADAE6B00B3E518 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2882D65E2BADAE6900B3E518 /* tkey-ios-mpc */;
+			target = 2882D65E2BADAE6900B3E518 /* tkey-mpc-ios */;
 			targetProxy = 2882D67A2BADAE6B00B3E518 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -586,7 +586,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tkey-ios-mpc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tkey-ios-mpc";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tkey-mpc-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tkey-mpc-ios";
 			};
 			name = Debug;
 		};
@@ -606,7 +606,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tkey-ios-mpc.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tkey-ios-mpc";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tkey-mpc-ios.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/tkey-mpc-ios";
 			};
 			name = Release;
 		};
@@ -649,7 +649,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2882D65A2BADAE6900B3E518 /* Build configuration list for PBXProject "tkey-ios-mpc" */ = {
+		2882D65A2BADAE6900B3E518 /* Build configuration list for PBXProject "tkey-mpc-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2882D6812BADAE6B00B3E518 /* Debug */,
@@ -658,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2882D6832BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-ios-mpc" */ = {
+		2882D6832BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2882D6842BADAE6B00B3E518 /* Debug */,
@@ -667,7 +667,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2882D6862BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-ios-mpcTests" */ = {
+		2882D6862BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2882D6872BADAE6B00B3E518 /* Debug */,
@@ -676,7 +676,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2882D6892BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-ios-mpcUITests" */ = {
+		2882D6892BADAE6B00B3E518 /* Build configuration list for PBXNativeTarget "tkey-mpc-iosUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2882D68A2BADAE6B00B3E518 /* Debug */,

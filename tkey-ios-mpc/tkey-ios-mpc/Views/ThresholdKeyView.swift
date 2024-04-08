@@ -37,82 +37,91 @@ struct ReconstructTKeyOptions: View {
     
     var body: some View {
         let isNewUser: Bool = thresholdKeyViewModel.requiredShares < 1
-        List {
-            Section(
-                header: Text("Threshold Details"),
-                content:  {
-                    Text("Threshold: \(thresholdKeyViewModel.threshold)")
-                    Text("Total Shares: \(thresholdKeyViewModel.totalShares)")
-                    Text("Required Shares: \(thresholdKeyViewModel.requiredShares)")
-                    Text("New user: \(isNewUser.description)")
-                    
-                }
-            )
-            
-            if(!isNewUser) {
+        ZStack{
+            List {
                 Section(
-                    header: Text("Reconstruct Options"),
-                    content: {
-                        Button(action: {
-                            thresholdKeyViewModel.reconstructWithDeviceShare()
-                        }, label: {
-                            Text("Recover with Device share")
-                        })
-                    }
-                )
-                
-                Section(
-                    header: Text("Recovery Options"),
+                    header: Text("Threshold Details"),
                     content:  {
-                        TextField(
-                            "Backup Factor in Mnemonic",
-                            text: $backupFactor
-                        )
-                        Button(
-                            action: {
-                                thresholdKeyViewModel.reconstructWithBackupFactor(
-                                    backupFactor: backupFactor
-                                )
-                            },
-                            label: {
-                                Text("Recover with backup")
-                            }
-                        )
+                        Text("Threshold: \(thresholdKeyViewModel.threshold)")
+                        Text("Total Shares: \(thresholdKeyViewModel.totalShares)")
+                        Text("Required Shares: \(thresholdKeyViewModel.requiredShares)")
+                        Text("New user: \(isNewUser.description)")
                         
-                        TextField(
-                            "Answer",
-                            text: $answer
-                        )
-                        
-                        Button(
-                            action: {
-                                thresholdKeyViewModel.reconstructWithSecurityQuestion(
-                                    answer: answer
-                                )
-                            },
-                            label: {
-                                Text("Recover with Security Question")
-                            }
-                        )
                     }
                 )
                 
-                Section(
-                    header: Text("Reset"),
-                    content: {
-                        Button(action: {
-                            thresholdKeyViewModel.resetAccount()
-                        }, label: {
-                            Text("Reset Account")
-                        })
-                    }
-                )
-            } else {
-                Button(action: {
-                    thresholdKeyViewModel.reconstructWithNewDeviceFactor()
-                }, label: {
-                    Text("Create Device share")
-                })
+                if(!isNewUser) {
+                    Section(
+                        header: Text("Reconstruct Options"),
+                        content: {
+                            Button(action: {
+                                thresholdKeyViewModel.reconstructWithDeviceShare()
+                            }, label: {
+                                Text("Recover with Device share")
+                            })
+                        }
+                    )
+                    
+                    Section(
+                        header: Text("Recovery Options"),
+                        content:  {
+                            TextField(
+                                "Backup Factor in Mnemonic",
+                                text: $backupFactor
+                            )
+                            Button(
+                                action: {
+                                    thresholdKeyViewModel.reconstructWithBackupFactor(
+                                        backupFactor: backupFactor
+                                    )
+                                },
+                                label: {
+                                    Text("Recover with backup")
+                                }
+                            )
+                            
+                            TextField(
+                                "Answer",
+                                text: $answer
+                            )
+                            
+                            Button(
+                                action: {
+                                    thresholdKeyViewModel.reconstructWithSecurityQuestion(
+                                        answer: answer
+                                    )
+                                },
+                                label: {
+                                    Text("Recover with Security Question")
+                                }
+                            )
+                        }
+                    )
+                    
+                    Section(
+                        header: Text("Reset"),
+                        content: {
+                            Button(action: {
+                                thresholdKeyViewModel.resetAccount()
+                            }, label: {
+                                Text("Reset Account")
+                            })
+                        }
+                    )
+                } else {
+                    Button(action: {
+                        thresholdKeyViewModel.reconstructWithNewDeviceFactor()
+                    }, label: {
+                        Text("Create Device share")
+                    })
+                }
+            }.blur(radius: thresholdKeyViewModel.isLoaderVisible ? 15 : 0)
+            
+            if(thresholdKeyViewModel.isLoaderVisible) {
+                HStack {
+                    ProgressView()
+                    Text("Processing...")
+                }
             }
         }.alert(isPresented: $thresholdKeyViewModel.showAlert, content: {
             Alert(title: Text(thresholdKeyViewModel.alertContent))

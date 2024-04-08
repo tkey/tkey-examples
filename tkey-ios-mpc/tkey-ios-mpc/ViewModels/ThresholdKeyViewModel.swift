@@ -17,11 +17,11 @@ import SingleFactorAuth
 import tkey_mpc_swift
 
 class ThresholdKeyViewModel: ObservableObject {
-    var customAuthViewModel: CustomAuthViewModel
+    var viewModel: ViewModel
     var ethereumClient: EthereumClient!
     
-    init(customAuthViewModel: CustomAuthViewModel) {
-        self.customAuthViewModel = customAuthViewModel
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
         ethereumClient = EthereumClient()
     }
     
@@ -53,17 +53,17 @@ class ThresholdKeyViewModel: ObservableObject {
     func initialize() {
         Task {
             do {
-                guard let postboxkey = self.customAuthViewModel.torusSFAKey.finalKeyData?.privKey else {
+                guard let postboxkey = self.viewModel.torusSFAKey.finalKeyData?.privKey else {
                     showAlert(alertContent: "Not able to retrive private key")
                     return
                 }
                 
                 verifier = "w3a-firebase-demo"
-                verifierId = customAuthViewModel.authDataResult.user.uid
+                verifierId = viewModel.authDataResult.user.uid
                 
-                let idToken = try await self.customAuthViewModel.authDataResult.user.getIDToken()
+                let idToken = try await self.viewModel.authDataResult.user.getIDToken()
                 
-                guard let sessionData = self.customAuthViewModel.torusSFAKey.sessionData else {
+                guard let sessionData = self.viewModel.torusSFAKey.sessionData else {
                     showAlert(alertContent: "Failed to retrive session data")
                     return
                 }
@@ -171,12 +171,14 @@ class ThresholdKeyViewModel: ObservableObject {
     func reconstructWithSecurityQuestion(answer: String) {
         Task {
             do {
+                toggleIsLoaderVisible()
                 let isValidAnswer = try await SecurityQuestionModule.input_share(
                     threshold_key: thresholdKey, answer: answer
                 )
                 
                 if(!isValidAnswer) {
                     showAlert(alertContent: "Not a valid answer")
+                    toggleIsLoaderVisible()
                     return
                 }
                 
@@ -186,6 +188,7 @@ class ThresholdKeyViewModel: ObservableObject {
                     showAlert(
                         alertContent:"Failed to reconstruct key with security question."
                     )
+                    toggleIsLoaderVisible()
                     return
                 }
                 
@@ -196,9 +199,11 @@ class ThresholdKeyViewModel: ObservableObject {
                 try await refreshFactorPubs()
                 
                 DispatchQueue.main.async {
+                    self.toggleIsLoaderVisible()
                     self.isAccounReady.toggle()
                 }
             } catch let error {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: error.localizedDescription)
             }
         }
@@ -227,6 +232,7 @@ class ThresholdKeyViewModel: ObservableObject {
     func reconstructWithBackupFactor(backupFactor: String) {
         Task {
             do {
+                toggleIsLoaderVisible()
                let hex = try ShareSerializationModule.deserialize_share(
                     threshold_key: thresholdKey,
                     share: backupFactor,
@@ -237,6 +243,7 @@ class ThresholdKeyViewModel: ObservableObject {
         
                 guard (try? await thresholdKey.reconstruct()) != nil
                 else {
+                    toggleIsLoaderVisible()
                     showAlert(
                         alertContent:"Failed to reconstruct key with  backup factor"
                     )
@@ -248,9 +255,11 @@ class ThresholdKeyViewModel: ObservableObject {
                 try await refreshFactorPubs()
                 
                 DispatchQueue.main.async {
+                    self.toggleIsLoaderVisible()
                     self.isAccounReady.toggle()
                 }
             } catch let error {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: error.localizedDescription)
             }
         }
@@ -258,7 +267,7 @@ class ThresholdKeyViewModel: ObservableObject {
     
     func reconstructWithDeviceShare() {
         Task {
-            
+            toggleIsLoaderVisible()
             let metadataPublicKey = try keyDetails.pub_key.getPublicKey(
                 format: .EllipticCompress
             )
@@ -266,6 +275,7 @@ class ThresholdKeyViewModel: ObservableObject {
             guard let factorPub = UserDefaults.standard.string(
                 forKey: metadataPublicKey
             ) else {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: "Failed to find device share.")
                 return
             }
@@ -279,6 +289,7 @@ class ThresholdKeyViewModel: ObservableObject {
                 activeFactor = factorKey
               
             } catch {
+                toggleIsLoaderVisible()
                 showAlert(
                     alertContent: "Failed to find device share or Incorrect device share"
                 )
@@ -286,6 +297,7 @@ class ThresholdKeyViewModel: ObservableObject {
             }
             
             guard let reconstructionDetails = try? await thresholdKey.reconstruct() else {
+                toggleIsLoaderVisible()
                 showAlert(
                     alertContent:"Failed to reconstruct key with available shares."
                 )
@@ -298,6 +310,7 @@ class ThresholdKeyViewModel: ObservableObject {
             
             try await refreshFactorPubs()
             
+            toggleIsLoaderVisible()
             DispatchQueue.main.async {
                 self.isAccounReady.toggle()
             }
@@ -307,8 +320,9 @@ class ThresholdKeyViewModel: ObservableObject {
     func addSecurityQuestion(question: String, answer: String) {
         Task {
             do {
-               
+                toggleIsLoaderVisible()
                 if(question.isEmpty || answer.isEmpty) {
+                    toggleIsLoaderVisible()
                     showAlert(alertContent: "Question and Answer cannot be empty.")
                     return
                 }
@@ -324,11 +338,13 @@ class ThresholdKeyViewModel: ObservableObject {
                     answer: answer
                 )
                 
+                toggleIsLoaderVisible()
                 DispatchQueue.main.async {
                     self.securityQuestion = question
                 }
                 
             } catch let error {
+                toggleIsLoaderVisible()
                 print(error.localizedDescription)
                 showAlert(alertContent: error.localizedDescription)
             }
@@ -344,8 +360,9 @@ class ThresholdKeyViewModel: ObservableObject {
     func resetAccount() {
         Task {
             do {
-                
-                guard let postboxkey = self.customAuthViewModel.torusSFAKey.finalKeyData?.privKey else {
+                toggleIsLoaderVisible()
+                guard let postboxkey = self.viewModel.torusSFAKey.finalKeyData?.privKey else {
+                    toggleIsLoaderVisible()
                     showAlert(alertContent: "Not able to retrive private key")
                     return
                 }
@@ -373,13 +390,14 @@ class ThresholdKeyViewModel: ObservableObject {
                     json: "{ \"message\": \"KEY_NOT_FOUND\" }"
                 )
                 
-                
+                toggleIsLoaderVisible()
                 showAlert(alertContent: "Account reset successful")
                 DispatchQueue.main.async {
                     self.isReseted = true
                 }
                 
             } catch {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: "Reset failed")
             }
         }
@@ -388,6 +406,7 @@ class ThresholdKeyViewModel: ObservableObject {
     func sendTransaction(onSend: @escaping (String?, String?) -> ()) {
         Task {
             do {
+                toggleIsLoaderVisible()
                 let address = self.ethereumAccount.address
                 let transaction = EthereumTransaction.init(
                     to: address,
@@ -416,10 +435,12 @@ class ThresholdKeyViewModel: ObservableObject {
                     ethTssAccount: ethereumAccount
                 )
                 
+                toggleIsLoaderVisible()
                 onSend(hash, nil)
                 
                 
             } catch let error {
+                toggleIsLoaderVisible()
                 print(error.localizedDescription)
                 onSend(nil, error.localizedDescription)
             }
@@ -428,12 +449,14 @@ class ThresholdKeyViewModel: ObservableObject {
     
     func deleteFactor(deleteFactorPub: String) {
         Task {
+            toggleIsLoaderVisible()
             var deleteFactorKey: String!
             var tag: String!
             do {
                 tag = try TssModule.get_tss_tag(threshold_key: thresholdKey)
                 deleteFactorKey = try KeychainInterface.fetch(key: deleteFactorPub)
             } catch {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: "There is no extra factor key to be deleted")
                 return
             }
@@ -459,10 +482,11 @@ class ThresholdKeyViewModel: ObservableObject {
                 
                 try KeychainInterface.save(item: "", key: deleteFactorKey)
                 try await refreshFactorPubs()
-                
+                toggleIsLoaderVisible()
                 showAlert(alertContent: "Deleted Factor Key :" + deleteFactorPub)
 
             } catch let error {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: error.localizedDescription)
             }
         }
@@ -471,9 +495,11 @@ class ThresholdKeyViewModel: ObservableObject {
     func reconstructWithNewDeviceFactor() {
         Task {
             do {
+                toggleIsLoaderVisible()
                 let factorKey = try PrivateKey.generate()
                 try await _createDeviceFactor(factorKey: factorKey)
                 guard (try? await thresholdKey.reconstruct()) != nil else {
+                    toggleIsLoaderVisible()
                     showAlert(
                         alertContent: "Failed to reconstruct key. \(keyDetails.required_shares) more share(s) required."
                     )
@@ -487,11 +513,13 @@ class ThresholdKeyViewModel: ObservableObject {
                 
                 try await refreshFactorPubs()
                 
+                toggleIsLoaderVisible()
                 DispatchQueue.main.async {
                     self.isAccounReady.toggle()
                 }
                 
             } catch let error {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: error.localizedDescription)
             }
         }
@@ -565,10 +593,12 @@ class ThresholdKeyViewModel: ObservableObject {
     func createNewTSSFactor() {
         Task {
             do {
+                toggleIsLoaderVisible()
                 let newFactorKey = try PrivateKey.generate()
                 try await saveNewTSSFactor(newFactorKey: newFactorKey)
-                
+                toggleIsLoaderVisible()
             } catch {
+                toggleIsLoaderVisible()
                 showAlert(alertContent: "Invalid Factor Key")
             }
         }

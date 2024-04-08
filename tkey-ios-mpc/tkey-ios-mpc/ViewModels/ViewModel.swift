@@ -12,7 +12,7 @@ import GoogleSignIn
 import FirebaseCore
 import TorusUtils
 
-class CustomAuthViewModel: ObservableObject {
+class ViewModel: ObservableObject {
     var torusSFAKey: TorusKey!
     var singleFactorAuth: SingleFactorAuth!
     var authDataResult: AuthDataResult!
