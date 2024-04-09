@@ -38,7 +38,7 @@ struct ReconstructTKeyOptions: View {
     var body: some View {
         let isNewUser: Bool = thresholdKeyViewModel.requiredShares < 1
         ZStack{
-            List {
+            Form {
                 Section(
                     header: Text("Threshold Details"),
                     content:  {
@@ -62,13 +62,15 @@ struct ReconstructTKeyOptions: View {
                         }
                     )
                     
+                    
                     Section(
                         header: Text("Recovery Options"),
-                        content:  {
+                        content: {
                             TextField(
-                                "Backup Factor in Mnemonic",
+                                "Please enter your seed phrase",
                                 text: $backupFactor
                             )
+                            
                             Button(
                                 action: {
                                     thresholdKeyViewModel.reconstructWithBackupFactor(
@@ -76,12 +78,13 @@ struct ReconstructTKeyOptions: View {
                                     )
                                 },
                                 label: {
-                                    Text("Recover with backup")
+                                    Text("Recover with Seed Phrase")
                                 }
                             )
                             
+                            
                             TextField(
-                                "Answer",
+                                "Please enter your answer",
                                 text: $answer
                             )
                             
@@ -99,13 +102,15 @@ struct ReconstructTKeyOptions: View {
                     )
                     
                     Section(
-                        header: Text("Reset"),
-                        content: {
-                            Button(action: {
-                                thresholdKeyViewModel.resetAccount()
-                            }, label: {
-                                Text("Reset Account")
-                            })
+                        header: Text("Reset"), content: {
+                            Text("Please continue with cautious, this will reset the account.")
+                            Button(
+                                role: .destructive,
+                                action: {
+                                    thresholdKeyViewModel.resetAccount()
+                                }, label: {
+                                    Text("Reset Account")
+                                })
                         }
                     )
                 } else {
@@ -118,7 +123,9 @@ struct ReconstructTKeyOptions: View {
             }.blur(radius: thresholdKeyViewModel.isLoaderVisible ? 15 : 0)
             
             if(thresholdKeyViewModel.isLoaderVisible) {
-                HStack {
+                HStack(
+                    spacing: 8
+                ) {
                     ProgressView()
                     Text("Processing...")
                 }

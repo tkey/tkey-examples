@@ -15,7 +15,7 @@
 		283C543E2BC014AC008CD381 /* SingleFactorAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 283C543D2BC014AC008CD381 /* SingleFactorAuth */; };
 		283C54412BC01576008CD381 /* tkey-mpc-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54402BC01576008CD381 /* tkey-mpc-swift */; };
 		283C54442BC02A85008CD381 /* TorusUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 283C54432BC02A85008CD381 /* TorusUtils */; };
-		285FF2642BBC7D1800A526F5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */; };
+		284BE5F02BC406A00049C203 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 284BE5EF2BC406A00049C203 /* GoogleService-Info.plist */; };
 		285FF2672BBC7D8C00A526F5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2662BBC7D8C00A526F5 /* FirebaseAuth */; };
 		285FF26A2BBC7DF700A526F5 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF2692BBC7DF700A526F5 /* GoogleSignIn */; };
 		285FF26C2BBC7DF700A526F5 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 285FF26B2BBC7DF700A526F5 /* GoogleSignInSwift */; };
@@ -53,7 +53,7 @@
 /* Begin PBXFileReference section */
 		28122A3B2BB28E9C00B6FA63 /* ThresholdKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdKeyView.swift; sourceTree = "<group>"; };
 		28122A402BB4429E00B6FA63 /* EthereumClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumClient.swift; sourceTree = "<group>"; };
-		285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		284BE5EF2BC406A00049C203 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "tkey-ios-mpc/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		285FF26D2BBC7F6300A526F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		2882D65F2BADAE6900B3E518 /* tkey-mpc-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tkey-mpc-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2882D6622BADAE6900B3E518 /* tkey_ios_mpcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tkey_ios_mpcApp.swift; sourceTree = "<group>"; };
@@ -109,6 +109,7 @@
 		2882D6562BADAE6900B3E518 = {
 			isa = PBXGroup;
 			children = (
+				284BE5EF2BC406A00049C203 /* GoogleService-Info.plist */,
 				2882D6602BADAE6900B3E518 /* Products */,
 				2882D6612BADAE6900B3E518 /* tkey-ios-mpc */,
 				2882D6722BADAE6B00B3E518 /* tkey-ios-mpcTests */,
@@ -130,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				285FF26D2BBC7F6300A526F5 /* Info.plist */,
-				285FF2632BBC7D1800A526F5 /* GoogleService-Info.plist */,
 				2882D6A02BAEC57000B3E518 /* Helpers */,
 				2882D6962BADC9F900B3E518 /* Views */,
 				2882D6922BADC5CB00B3E518 /* ViewModels */,
@@ -319,9 +319,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284BE5F02BC406A00049C203 /* GoogleService-Info.plist in Resources */,
 				2882D66A2BADAE6B00B3E518 /* Preview Assets.xcassets in Resources */,
 				2882D6672BADAE6B00B3E518 /* Assets.xcassets in Resources */,
-				285FF2642BBC7D1800A526F5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

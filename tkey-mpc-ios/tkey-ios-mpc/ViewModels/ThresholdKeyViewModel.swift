@@ -85,7 +85,7 @@ class ThresholdKeyViewModel: ObservableObject {
                 
                 torusUtils = TorusUtils(
                     enableOneKey: true,
-                    network: .sapphire(.SAPPHIRE_MAINNET), 
+                    network: .sapphire(.SAPPHIRE_MAINNET),
                     clientId: "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ"
                 )
                 
@@ -163,6 +163,7 @@ class ThresholdKeyViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.factorPubs = factorPubsLocal
             }
+            
         } catch let error {
             throw error
         }
@@ -233,14 +234,14 @@ class ThresholdKeyViewModel: ObservableObject {
         Task {
             do {
                 toggleIsLoaderVisible()
-               let hex = try ShareSerializationModule.deserialize_share(
+                let hex = try ShareSerializationModule.deserialize_share(
                     threshold_key: thresholdKey,
                     share: backupFactor,
                     format: "mnemonic"
                 )
                 let factorKey = PrivateKey.init(hex: hex)
                 try await thresholdKey.input_factor_key(factorKey: factorKey.hex)
-        
+                
                 guard (try? await thresholdKey.reconstruct()) != nil
                 else {
                     toggleIsLoaderVisible()
@@ -267,53 +268,56 @@ class ThresholdKeyViewModel: ObservableObject {
     
     func reconstructWithDeviceShare() {
         Task {
-            toggleIsLoaderVisible()
-            let metadataPublicKey = try keyDetails.pub_key.getPublicKey(
-                format: .EllipticCompress
-            )
-            
-            guard let factorPub = UserDefaults.standard.string(
-                forKey: metadataPublicKey
-            ) else {
-                toggleIsLoaderVisible()
-                showAlert(alertContent: "Failed to find device share.")
-                return
-            }
-            
-            var factorKey: String!
             
             do {
+                toggleIsLoaderVisible()
+                let metadataPublicKey = try keyDetails.pub_key.getPublicKey(
+                    format: .EllipticCompress
+                )
+                
+                guard let factorPub = UserDefaults.standard.string(
+                    forKey: metadataPublicKey
+                ) else {
+                    toggleIsLoaderVisible()
+                    showAlert(alertContent: "Failed to find device share.")
+                    return
+                }
+                
+                var factorKey: String!
+                
                 factorKey = try KeychainInterface.fetch(key: factorPub)
                 try await thresholdKey.input_factor_key(factorKey: factorKey)
+                
                 let pk = PrivateKey(hex: factorKey)
                 activeFactor = factorKey
-              
-            } catch {
+                
+                
+                
+                guard let reconstructionDetails = try? await thresholdKey.reconstruct() else {
+                    toggleIsLoaderVisible()
+                    showAlert(
+                        alertContent:"Failed to reconstruct key with available shares."
+                    )
+                    return
+                }
+                
+                try await prepareEthTssAccout(
+                    factorKey: factorKey
+                )
+                
+                try await refreshFactorPubs()
+                
+                toggleIsLoaderVisible()
+                DispatchQueue.main.async {
+                    self.isAccounReady.toggle()
+                }
+            } catch let error {
                 toggleIsLoaderVisible()
                 showAlert(
-                    alertContent: "Failed to find device share or Incorrect device share"
+                    alertContent: "Failed to find device share: \(error.localizedDescription)"
                 )
-                return
             }
             
-            guard let reconstructionDetails = try? await thresholdKey.reconstruct() else {
-                toggleIsLoaderVisible()
-                showAlert(
-                    alertContent:"Failed to reconstruct key with available shares."
-                )
-                return
-            }
-            
-            try await prepareEthTssAccout(
-                factorKey: factorKey
-            )
-            
-            try await refreshFactorPubs()
-            
-            toggleIsLoaderVisible()
-            DispatchQueue.main.async {
-                self.isAccounReady.toggle()
-            }
         }
     }
     
@@ -394,6 +398,7 @@ class ThresholdKeyViewModel: ObservableObject {
                 showAlert(alertContent: "Account reset successful")
                 DispatchQueue.main.async {
                     self.isReseted = true
+                    self.viewModel.isLoggedIn = false
                 }
                 
             } catch {
@@ -484,7 +489,7 @@ class ThresholdKeyViewModel: ObservableObject {
                 try await refreshFactorPubs()
                 toggleIsLoaderVisible()
                 showAlert(alertContent: "Deleted Factor Key :" + deleteFactorPub)
-
+                
             } catch let error {
                 toggleIsLoaderVisible()
                 showAlert(alertContent: error.localizedDescription)
@@ -597,6 +602,9 @@ class ThresholdKeyViewModel: ObservableObject {
                 let newFactorKey = try PrivateKey.generate()
                 try await saveNewTSSFactor(newFactorKey: newFactorKey)
                 toggleIsLoaderVisible()
+                showAlert(
+                    alertContent: "Seed Phrase copied to clipboard. Please note it down, and keep it safe." + "\n" + UIPasteboard.general.string!
+                )
             } catch {
                 toggleIsLoaderVisible()
                 showAlert(alertContent: "Invalid Factor Key")
