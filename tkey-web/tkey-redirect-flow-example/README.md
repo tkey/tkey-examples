@@ -12,17 +12,17 @@ This example demonstrates how to use Web3Auth's tKey in a React environment.
 ### Download Manually
 
 ```bash
-npx degit Web3Auth/web3auth-core-kit-examples/tkey-web/tkey-react-redirect-example w3a-tkey-redirect-example
+npx degit tkey/tkey-examples/tkey-web/tkey-redirect-flow-example w3a-tkey-redirect-flow-example
 ```
 
 Install & Run:
 
 ```bash
-cd w3a-tkey-redirect-example
+cd w3a-tkey-redirect-flow-example
 npm install
 npm run start
 # or
-cd w3a-tkey-redirect-example
+cd w3a-tkey-redirect-flow-example
 yarn
 yarn start
 ```

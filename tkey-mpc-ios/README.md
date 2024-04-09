@@ -1,4 +1,4 @@
-# Web3Auth tKey iOS QuickStart
+# Web3Auth tKey MPC iOS Example
 
 [![Web3Auth](https://img.shields.io/badge/Web3Auth-SDK-blue)](https://web3auth.io/docs/sdk/core-kit/tkey-ios)
 [![Web3Auth](https://img.shields.io/badge/Web3Auth-Community-cyan)](https://community.web3auth.io)
@@ -12,13 +12,13 @@ This example demonstrates how to use Web3Auth's tKey in iOS.
 ### Download Manually
 
 ```bash
-npx degit tkey/tkey-examples/tkey-ios/tkey-ios-quick-start w3a-tkey-ios-quick-start
+npx degit tkey/tkey-examples/tkey-mpc-ios w3a-tkey-mpc-ios
 ```
 
 Install & Run:
 
 ```bash
-cd w3a-tkey-ios-quick-start
+cd w3a-tkey-mpc-ios
 # run project in Xcode
 ```
 

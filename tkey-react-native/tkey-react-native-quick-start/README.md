@@ -1,25 +1,28 @@
-# Web3Auth tKey iOS QuickStart
+# Web3Auth tKey React Native QuickStart
 
-[![Web3Auth](https://img.shields.io/badge/Web3Auth-SDK-blue)](https://web3auth.io/docs/sdk/core-kit/tkey-ios)
+[![Web3Auth](https://img.shields.io/badge/Web3Auth-SDK-blue)](https://web3auth.io/docs/sdk/core-kit/tkey-android)
 [![Web3Auth](https://img.shields.io/badge/Web3Auth-Community-cyan)](https://community.web3auth.io)
 
 [Join our Community Portal](https://community.web3auth.io/) to get support and stay up to date with the latest news and updates.
 
-This example demonstrates how to use Web3Auth's tKey in iOS.
+This example demonstrates how to use Web3Auth's tKey in RN.
 
 ## How to Use
 
 ### Download Manually
 
 ```bash
-npx degit tkey/tkey-examples/tkey-ios/tkey-ios-quick-start w3a-tkey-ios-quick-start
+npx degit tkey/tkey-examples/tkey-react-native/tkey-react-native-quick-start w3a-tkey-react-native-quick-start
 ```
 
 Install & Run:
 
 ```bash
-cd w3a-tkey-ios-quick-start
-# run project in Xcode
+cd w3a-tkey-react-native-quick-start
+npm install
+npm run android
+# or
+npm run ios
 ```
 
 ## Important Links

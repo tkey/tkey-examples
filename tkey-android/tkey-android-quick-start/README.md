@@ -3,7 +3,6 @@
 [![Web3Auth](https://img.shields.io/badge/Web3Auth-SDK-blue)](https://web3auth.io/docs/sdk/core-kit/tkey-android)
 [![Web3Auth](https://img.shields.io/badge/Web3Auth-Community-cyan)](https://community.web3auth.io)
 
-
 [Join our Community Portal](https://community.web3auth.io/) to get support and stay up to date with the latest news and updates.
 
 This example demonstrates how to use Web3Auth's tKey in Android.
@@ -13,13 +12,13 @@ This example demonstrates how to use Web3Auth's tKey in Android.
 ### Download Manually
 
 ```bash
-npx degit Web3Auth/web3auth-core-kit-examples/tkey-android/tkey-android-google-example w3a-tkey-android-google
+npx degit tkey/tkey-examples/tkey-android/tkey-android-quick-start w3a-tkey-android-quick-start
 ```
 
 Install & Run:
 
 ```bash
-cd w3a-tkey-android-google
+cd w3a-tkey-android-quick-start
 # run project in Xcode
 ```
 
