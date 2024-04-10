@@ -43,7 +43,7 @@
 		"tiny-secp256k1": "1.1.6",
 		"typescript": "^4.9.3",
 		"web-vitals": "^2.1.4",
-		"web3": "^1.8.2"
+		"web3": "^4.7.0"
 	},
 	"devDependencies": {
 		"@types/eccrypto": "^1.1.3",
