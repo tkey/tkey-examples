@@ -7,14 +7,12 @@ import { useEffect, useState } from "react";
 import swal from "sweetalert";
 import { tKey } from "./tkey";
 import { addFactorKeyMetadata, setupWeb3, copyExistingTSSShareForNewFactor, addNewTSSShareAndFactor, getEcCrypto, LoginResponse, SigningParams } from "./utils";
-import { utils } from "@toruslabs/tss-client";
+
 import { ShareSerializationModule } from "@tkey-mpc/share-serialization";
 import Web3 from "web3";
 import { TorusServiceProvider } from "@tkey-mpc/service-provider-torus";
 import { TorusLoginResponse } from "@toruslabs/customauth"
 import { CustomChainConfig } from "@web3auth/base";
-
-const { getTSSPubKey } = utils;
 
 const uiConsole = (...args: any[]): void => {
   const el = document.querySelector("#console>p");
@@ -25,12 +23,12 @@ const uiConsole = (...args: any[]): void => {
 };
 
 const chainConfig: Omit<CustomChainConfig, "chainNamespace"> = {
-  chainId: "0x5",
-  rpcTarget: "https://rpc.ankr.com/eth_goerli",
-  displayName: "Goerli Testnet",
-  blockExplorer: "https://goerli.etherscan.io",
-  ticker: "ETH",
-  tickerName: "Ethereum",
+  chainId: '0x1',
+  rpcTarget: 'https://rpc.ankr.com/eth',
+  displayName: 'mainnet',
+  blockExplorer: 'https://etherscan.io/',
+  ticker: 'ETH',
+  tickerName: 'Ethereum',
 }
 
 function App() {
@@ -70,7 +68,11 @@ function App() {
   // sets up web3
   useEffect(() => {
     const localSetup = async () => {
-      const web3Local = await setupWeb3(chainConfig, loginResponse!, signingParams!);
+      const { nodeIndexes } = await (tKey.serviceProvider as TorusServiceProvider).getTSSPubKey(
+        tKey.tssTag,
+        tKey?.metadata?.tssNonces?.[tKey.tssTag || "default"] || 0
+      );
+      const web3Local = await setupWeb3(chainConfig, loginResponse!, signingParams!, nodeIndexes as any);
       setWeb3(web3Local);
     };
     if (signingParams) {
@@ -202,9 +204,9 @@ function App() {
 
 
       // 4. derive tss pub key, tss pubkey is implicitly formed using the dkgPubKey and the userShare (as well as userTSSIndex)
-      const tssPubKey = getTSSPubKey(tssShare1PubKey, tssShare2PubKey, tssShare2Index);
+      const tssPubKey = tKey.getTSSPub();
 
-      const compressedTSSPubKey = Buffer.from(`${tssPubKey.getX().toString(16, 64)}${tssPubKey.getY().toString(16, 64)}`, "hex");
+      const compressedTSSPubKey = Buffer.from(`${tssPubKey.x.toString(16, 64)}${tssPubKey.y.toString(16, 64)}`, "hex");
 
       // 5. save factor key and other metadata
       if (
@@ -384,6 +386,23 @@ function App() {
     return chainId;
   };
 
+  const ethSign = async () => {
+    if (!web3) {
+      console.log("web3 not initialized yet");
+      return;
+    }
+    const accounts = await web3.eth.getAccounts();
+    const account = accounts[0];
+    const msg = "hi there";
+    const signedMessage = await web3.eth.personal.sign(
+          msg,
+          account,
+          "",
+        );
+    uiConsole(signedMessage);
+    return signedMessage;
+  };
+
   const getAccounts = async () => {
     if (!web3) {
       console.log("web3 not initialized yet");
@@ -413,20 +432,9 @@ function App() {
       return;
     }
     const fromAddress = (await web3.eth.getAccounts())[0];
-    const originalMessage = [
-      {
-        type: "string",
-        name: "fullName",
-        value: "Satoshi Nakamoto",
-      },
-      {
-        type: "uint32",
-        name: "userId",
-        value: "1212",
-      },
-    ];
+    const originalMessage = "hi there";
     const params = [originalMessage, fromAddress];
-    const method = "eth_signTypedData";
+    const method = "personal_sign";
     const signedMessage = await (web3.currentProvider as any)?.sendAsync({
       id: 1,
       method,
@@ -519,6 +527,10 @@ function App() {
 
         <button onClick={getAccounts} className="card">
           Get Accounts
+        </button>
+
+        <button onClick={ethSign} className="card">
+          sign eth message
         </button>
 
 

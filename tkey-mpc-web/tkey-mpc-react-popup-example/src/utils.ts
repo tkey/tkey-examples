@@ -3,17 +3,15 @@ import { encrypt, getPubKeyECC, Point, PointHex, randomSelection, ShareStore } f
 import EC from "elliptic";
 
 import { generatePrivate } from "@toruslabs/eccrypto";
-import { Client } from "@toruslabs/tss-client";
 import * as tss from "@toruslabs/tss-lib";
 import { EthereumSigningProvider } from "@web3auth-mpc/ethereum-provider";
 import keccak256 from "keccak256";
 import Web3 from "web3";
 import type { provider } from "web3-core";
-import { utils } from "@toruslabs/tss-client";
+import { Client, getDKLSCoeff, setupSockets } from "@toruslabs/tss-client";
+
 import { CustomChainConfig } from "@web3auth/base";
 import ThresholdKey from "@tkey-mpc/core/dist/types/core";
-
-const { getDKLSCoeff, setupSockets } = utils;
 
 export type LoginResponse = {
   userInfo: any,
@@ -58,6 +56,8 @@ export const generateTSSEndpoints = (tssNodeEndpoints: string[], parties: number
   const endpoints: string[] = [];
   const tssWSEndpoints: string[] = [];
   const partyIndexes: number[] = [];
+  const nodeIndexesReturned: number[] = [];
+
   for (let i = 0; i < parties; i++) {
     partyIndexes.push(i);
     if (i === clientIndex) {
@@ -66,12 +66,40 @@ export const generateTSSEndpoints = (tssNodeEndpoints: string[], parties: number
     } else {
       endpoints.push(tssNodeEndpoints[i]);
       tssWSEndpoints.push(new URL(tssNodeEndpoints[i]).origin);
+      nodeIndexesReturned.push(+tssNodeEndpoints[i]);
     }
   }
-  return { endpoints, tssWSEndpoints, partyIndexes };
+  return { endpoints, tssWSEndpoints, partyIndexes, nodeIndexesReturned };
 };
 
-export const setupWeb3 = async (chainConfig: Omit<CustomChainConfig, "chainNamespace">, loginReponse: LoginResponse, signingParams: SigningParams) => {
+
+export const generateTSSEndpointsNew = (tssNodeEndpoints: string[], parties: number, clientIndex: number, nodeIndexes: number[]) => {
+  const endpoints: string[] = [];
+  const tssWSEndpoints: string[] = [];
+  const partyIndexes: number[] = [];
+  const nodeIndexesReturned: number[] = [];
+
+  for (let i = 0; i < parties; i++) {
+    partyIndexes.push(i);
+    if (i === clientIndex) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      endpoints.push(null as any);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      tssWSEndpoints.push(null as any);
+    } else {
+      const targetNodeIndex = nodeIndexes[i] - 1;
+      endpoints.push(tssNodeEndpoints[targetNodeIndex]);
+      tssWSEndpoints.push(new URL(tssNodeEndpoints[targetNodeIndex]).origin);
+      nodeIndexesReturned.push(nodeIndexes[i]);
+    }
+  }
+  return { endpoints, tssWSEndpoints, partyIndexes, nodeIndexesReturned };
+};
+export function scalarBNToBufferSEC1(s: BN): Buffer {
+  return s.toArrayLike(Buffer, "be", 32);
+}
+
+export const setupWeb3 = async (chainConfig: Omit<CustomChainConfig, "chainNamespace">, loginReponse: LoginResponse, signingParams: SigningParams, nodeIndexes: number[]) => {
   try {
     const ethereumSigningProvider = new EthereumSigningProvider({
       config: {
@@ -101,16 +129,16 @@ export const setupWeb3 = async (chainConfig: Omit<CustomChainConfig, "chainNames
 
       // 1. setup
       // generate endpoints for servers
-      
-      const { endpoints, tssWSEndpoints, partyIndexes } = generateTSSEndpoints(nodeDetails.serverEndpoints, parties, clientIndex);
+     
+      const { endpoints, tssWSEndpoints, partyIndexes, nodeIndexesReturned: participatingServerDKGIndexes } = generateTSSEndpointsNew(nodeDetails.serverEndpoints, parties, clientIndex, nodeIndexes);
   
       // setup mock shares, sockets and tss wasm files.
       const [sockets] = await Promise.all([setupSockets(tssWSEndpoints as string[], randomSessionNonce.toString("hex")), tss.default(tssImportUrl)]);
 
-      const participatingServerDKGIndexes = [1, 2, 3];
       const dklsCoeff = getDKLSCoeff(true, participatingServerDKGIndexes, tssShare2Index);
       const denormalisedShare = dklsCoeff.mul(tssShare2).umod(ec.curve.n);
-      const share = Buffer.from(denormalisedShare.toString(16, 64), "hex").toString("base64");
+      // const share = Buffer.from(denormalisedShare.toString(16, 64), "hex").toString("base64");
+      const share = scalarBNToBufferSEC1(denormalisedShare).toString("base64");
 
       if (!currentSession) {
         throw new Error(`sessionAuth does not exist ${currentSession}`);
@@ -135,11 +163,14 @@ export const setupWeb3 = async (chainConfig: Omit<CustomChainConfig, "chainNames
         const serverIndex = participatingServerDKGIndexes[i];
         serverCoeffs[serverIndex] = getDKLSCoeff(false, participatingServerDKGIndexes, tssShare2Index, serverIndex).toString("hex");
       }
-      client.precompute(tss, { signatures, server_coeffs: serverCoeffs });
+      client.precompute(tss, { signatures, server_coeffs: serverCoeffs, nonce: scalarBNToBufferSEC1(new BN(0)).toString("base64") });
       await client.ready();
-      const { r, s, recoveryParam } = await client.sign(tss as any, Buffer.from(msgHash).toString("base64"), true, "", "keccak256", {
+      let { r, s, recoveryParam } = await client.sign(tss as any, Buffer.from(msgHash).toString("base64"), true, "", "keccak256", {
         signatures,
       });
+      if (recoveryParam < 27) {
+        recoveryParam += 27;
+      }
       await client.cleanup(tss, { signatures, server_coeffs: serverCoeffs });
       return { v: recoveryParam, r: r.toArrayLike(Buffer, "be", 32), s: s.toArrayLike(Buffer, "be", 32) };
     };
