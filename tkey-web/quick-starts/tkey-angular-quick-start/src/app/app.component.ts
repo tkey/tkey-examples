@@ -108,7 +108,7 @@ export class AppComponent {
 
       this.tKeyInitialised = true;
 
-      var {requiredShares} = tKey.getKeyDetails();
+      var { requiredShares } = tKey.getKeyDetails();
 
       if (requiredShares > 0) {
         this.uiConsole('Please enter your backup shares, requiredShares:', requiredShares);
@@ -128,8 +128,9 @@ export class AppComponent {
 
       await ethereumPrivateKeyProvider.setupProvider(privateKey);
       this.provider = ethereumPrivateKeyProvider;
+
+      await this.setDeviceShare();
       this.loggedIn = true;
-      this.setDeviceShare();
     } catch (e) {
       this.uiConsole(e);
     }
@@ -214,21 +215,21 @@ export class AppComponent {
     } catch (error) {
       this.uiConsole(error);
     }
-  }; 
+  };
 
   keyDetails = async () => {
-		if (!tKey) {
-			this.uiConsole("tKey not initialized yet");
-			return;
-		}
-		const keyDetails = await tKey.getKeyDetails();
-		this.uiConsole(keyDetails);
-	};
+    if (!tKey) {
+      this.uiConsole("tKey not initialized yet");
+      return;
+    }
+    const keyDetails = await tKey.getKeyDetails();
+    this.uiConsole(keyDetails);
+  };
 
   getUserInfo = async () => {
     this.uiConsole(this.userInfo);
   };
-  
+
   logout = async () => {
     this.provider = null;
     this.loggedIn = false;

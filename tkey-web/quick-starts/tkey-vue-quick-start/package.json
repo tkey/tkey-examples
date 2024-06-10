@@ -8,11 +8,11 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@tkey/core": "^12.0.0",
+    "@tkey/core": "^13.0.0-alpha.4",
     "@tkey/service-provider-sfa": "^11.0.0",
-    "@tkey/share-serialization": "^12.0.0",
-    "@tkey/storage-layer-torus": "^12.0.0",
-    "@tkey/web-storage": "^12.0.0",
+    "@tkey/share-serialization": "^13.0.0-alpha.4",
+    "@tkey/storage-layer-torus": "^13.0.0-alpha.4",
+    "@tkey/web-storage": "^13.0.0-alpha.4",
     "@web3auth/base": "^7.2.1",
     "@web3auth/ethereum-provider": "^7.2.1",
     "@web3auth/single-factor-auth": "^7.2.2",

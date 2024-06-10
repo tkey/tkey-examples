@@ -23,7 +23,7 @@ const web3AuthOptions: any = {
 };
 
 // Configuration of Service Provider
-const serviceProvider = new SFAServiceProvider({web3AuthOptions});
+const serviceProvider = new SFAServiceProvider({ web3AuthOptions });
 
 // Instantiation of Storage Layer
 const storageLayer = new TorusStorageLayer({

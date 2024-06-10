@@ -22,10 +22,10 @@ const ethereumPrivateKeyProvider = new EthereumPrivateKeyProvider({
 		all chainConfig fields are required.
 		*/
 		chainConfig: {
-			chainId: "0x13881",
-			rpcTarget: "https://rpc.ankr.com/polygon_mumbai",
-			displayName: "Polygon Testnet",
-			blockExplorer: "https://mumbai.polygonscan.com",
+			chainId: "0x13882",
+			rpcTarget: "https://polygon-amoy.drpc.org",
+			displayName: "Polygon Amoy",
+			blockExplorer: "https://www.oklink.com/amoy",
 			ticker: "MATIC",
 			tickerName: "Matic",
 		},
@@ -47,12 +47,12 @@ function App() {
 			// Initialization of Service Provider
 			try {
 				await (tKey.serviceProvider as TorusServiceProvider).init({ skipSw: true, skipPrefetch: true });
-				
+
 				// Init is required for Redirect Flow but skip fetching sw.js and redirect.html )
-				if (window.location.hash.includes("#state") ) {
+				if (window.location.hash.includes("#state")) {
 					let result = await (tKey.serviceProvider as TorusServiceProvider).customAuthInstance.getRedirectResult();
-					tKey.serviceProvider.postboxKey =  new BN ( TorusUtils.getPostboxKey(result.result as TorusLoginResponse), "hex");
-					setUserInfo( (result.result as any).userInfo);
+					tKey.serviceProvider.postboxKey = new BN(TorusUtils.getPostboxKey(result.result as TorusLoginResponse), "hex");
+					setUserInfo((result.result as any).userInfo);
 					// Initialization of tKey
 					await tKey.initialize(); // 1/2 flow
 
@@ -68,10 +68,10 @@ function App() {
 				}
 
 			} catch (error) {
-			  console.error(error);
+				console.error(error);
 			}
-		  };
-		  init();
+		};
+		init();
 	}, []);
 
 	const login = async () => {
@@ -212,7 +212,7 @@ function App() {
 				await (tKey.modules.securityQuestions as SecurityQuestionsModule).inputShareFromSecurityQuestions(password);
 				await reconstructKey();
 				uiConsole('Successfully recovered new share with password.');
-				
+
 			} else {
 				throw new Error('Password must be >= 11 characters');
 			}
@@ -364,7 +364,7 @@ function App() {
 		const destination = "0x4041FF26b6713FCd5659471521BA2e514E23750d";
 
 		// Convert amount to wei
-		const amount = web3.utils.toWei("0.04", "ether");
+		const amount = web3.utils.toWei("0.0001", "ether");
 
 		// Submit transaction to the blockchain and wait for it to be mined
 		const receipt = await web3.eth.sendTransaction({
@@ -375,7 +375,8 @@ function App() {
 			maxPriorityFeePerGas: "10",
 			value: amount,
 		});
-		uiConsole(receipt)
+
+		uiConsole(receipt.transactionHash);
 	}
 
 	const uiConsole = (...args: any[]): void => {
