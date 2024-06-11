@@ -99,8 +99,8 @@ function App() {
 
 			await ethereumPrivateKeyProvider.setupProvider(privateKey);
 			setProvider(ethereumPrivateKeyProvider);
+			await setDeviceShare();
 			setLoggedIn(true);
-			setDeviceShare();
 		} catch (e) {
 			uiConsole(e);
 		}
