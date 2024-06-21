@@ -18,7 +18,7 @@
     "@types/react": "~18.0.27",
     "@web3auth/ethereum-provider": "^7.0.4",
     "empty-module": "^0.0.2",
-    "ethers": "^6.8.0",
+    "ethers": "^6.13.1",
     "expo": "~48.0.18",
     "expo-auth-session": "^4.0.3",
     "expo-constants": "^14.2.1",
