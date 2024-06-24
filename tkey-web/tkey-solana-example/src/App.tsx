@@ -85,7 +85,15 @@ function App() {
         idToken,
       });
 
-      await tKey.initialize();
+      const seed = Buffer.from(hex.decode("e5aa968ef904bb48f6230ac345463d094dfdcd5c0ee94aae31558dbb33d80e58"));
+      console.log(seed);
+
+      // Uncomment to test importEd25519Seed
+      await tKey.initialize(
+        // {
+        //   importEd25519Seed: seed
+        // }
+      );
 
       setTKeyInitialised(true);
 
