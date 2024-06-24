@@ -50,20 +50,6 @@ export class AppComponent {
 
   app = initializeApp(firebaseConfig);
 
-  async ngOnInit() {
-    const init = async () => {
-      try {
-        await (tKey.serviceProvider as SfaServiceProvider).init(
-          ethereumPrivateKeyProvider,
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    init();
-  }
-
   signInWithGoogle = async (): Promise<UserCredential> => {
     try {
       const auth = getAuth(this.app);

@@ -42,21 +42,6 @@ function App() {
   // Firebase Initialisation
   const app = initializeApp(firebaseConfig);
 
-  useEffect(() => {
-    const init = async () => {
-      // Initialization of Service Provider
-      try {
-        await (tKey.serviceProvider as SfaServiceProvider).init(
-          ethereumPrivateKeyProvider,
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    init();
-  }, []);
-
   const signInWithGoogle = async (): Promise<UserCredential> => {
     try {
       const auth = getAuth(app);

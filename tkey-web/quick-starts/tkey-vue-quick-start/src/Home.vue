@@ -137,18 +137,6 @@ export default {
     // Firebase Initialisation
     const app = initializeApp(firebaseConfig);
 
-    onMounted(async () => {
-      const init = async () => {
-        try {
-          await (tKey.serviceProvider as SfaServiceProvider).init(ethereumPrivateKeyProvider);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-
-      init();
-    });
-
     const signInWithGoogle = async (): Promise<UserCredential> => {
       try {
         const auth = getAuth(app);
