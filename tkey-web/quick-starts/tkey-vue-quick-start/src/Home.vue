@@ -137,18 +137,6 @@ export default {
     // Firebase Initialisation
     const app = initializeApp(firebaseConfig);
 
-    onMounted(async () => {
-      const init = async () => {
-        try {
-          await (tKey.serviceProvider as SfaServiceProvider).init(ethereumPrivateKeyProvider);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-
-      init();
-    });
-
     const signInWithGoogle = async (): Promise<UserCredential> => {
       try {
         const auth = getAuth(app);
@@ -213,8 +201,8 @@ export default {
 
         await ethereumPrivateKeyProvider.setupProvider(privateKey);
         provider = ethereumPrivateKeyProvider;
+        await setDeviceShare();
         loggedIn.value = true;
-        setDeviceShare();
       } catch (e) {
         uiConsole(e);
       }
@@ -327,7 +315,7 @@ export default {
       const web3 = new Web3(provider as any);
 
       // Get user's Ethereum public address
-      const address = await web3.eth.getAccounts();
+      const address = (await web3.eth.getAccounts())[0];
       uiConsole(address);
     };
 

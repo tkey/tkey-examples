@@ -20,7 +20,7 @@ const chainConfig = {
 const web3AuthOptions: any = {
   clientId, // Get your Client ID from Web3Auth Dashboard
   chainConfig,
-  web3AuthNetwork: 'sapphire_mainnet',
+  network: 'sapphire_mainnet',
 };
 
 // Configuration of Service Provider
