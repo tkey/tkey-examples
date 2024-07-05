@@ -74,7 +74,7 @@ export default class SolanaRPC {
 
             return hash.signature;
         } catch (error) {
-            return error as string;
+            throw error;
         }
     }
 
@@ -92,7 +92,7 @@ export default class SolanaRPC {
             const hash = await connection.requestAirdrop(publicKey, LAMPORTS_PER_SOL);
             return hash;
         } catch (error) {
-            return error as string;
+            throw error;
         }
     }
 

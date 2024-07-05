@@ -262,8 +262,12 @@ function App() {
       return;
     }
 
-    const signedMessage = await solanaRpc.requestFaucet();
-    uiConsole(signedMessage);
+    try {
+      const signedMessage = await solanaRpc.requestFaucet();
+      uiConsole(signedMessage);
+    } catch (e) {
+      uiConsole(e?.toString());
+    }
   };
 
   const sendTransaction = async () => {
@@ -272,8 +276,12 @@ function App() {
       return;
     }
 
-    const signedMessage = await solanaRpc.sendTransaction();
-    uiConsole(signedMessage);
+    try {
+      const signedMessage = await solanaRpc.sendTransaction();
+      uiConsole(signedMessage);
+    } catch (e) {
+      uiConsole(e);
+    }
   };
 
   const criticalResetAccount = async (): Promise<void> => {
