@@ -1,28 +1,28 @@
-# Web3Auth MPC Beta React Firebase Example
+# Web3Auth tKey Solana Example
 
 [![Web3Auth](https://img.shields.io/badge/Web3Auth-SDK-blue)](https://web3auth.io/docs/sdk/core-kit/tkey)
 [![Web3Auth](https://img.shields.io/badge/Web3Auth-Community-cyan)](https://community.web3auth.io)
 
 [Join our Community Portal](https://community.web3auth.io/) to get support and stay up to date with the latest news and updates.
 
-This example demonstrates how to use Web3Auth's tKey MPC Beta in a React environment.
+This example demonstrates how to use Web3Auth's tKey with Solana in a React environment.
 
 ## How to Use
 
 ### Download Manually
 
 ```bash
-npx degit tkey/tkey-examples/tkey-mpc-web/tkey-mpc-react-firebase-example w3a-tkey-mpc-firebase-example
+npx degit tkey/tkey-examples/tkey-web/tkey-solana-example tkey-solana-example
 ```
 
 Install & Run:
 
 ```bash
-cd w3a-tkey-mpc-firebase-example
+cd tkey-solana-example
 npm install
 npm run start
 # or
-cd w3a-tkey-mpc-firebase-example
+cd tkey-solana-example
 yarn
 yarn start
 ```
