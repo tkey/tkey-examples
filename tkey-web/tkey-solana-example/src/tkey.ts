@@ -1,10 +1,9 @@
-import ThresholdKey from "@tkey/core";
+import { TKey } from "@tkey/core";
 import { SfaServiceProvider } from "@tkey/service-provider-sfa";
 import { Web3AuthOptions } from "@tkey/service-provider-sfa/dist/types/interfaces";
 import { ShareSerializationModule } from "@tkey/share-serialization";
-import TorusStorageLayer from "@tkey/storage-layer-torus";
-import WebStorageModule from "@tkey/web-storage";
-import { TORUS_SAPPHIRE_NETWORK } from "@toruslabs/constants";
+import { TorusStorageLayer } from "@tkey/storage-layer-torus";
+import { WebStorageModule } from "@tkey/web-storage";
 import { CHAIN_NAMESPACES, WEB3AUTH_NETWORK } from "@web3auth/base";
 
 // Configuration of Modules
@@ -33,7 +32,7 @@ export const chainConfig = {
 };
 
 // Instantiation of tKey
-export const tKey = new ThresholdKey({
+export const tKey = new TKey({
   serviceProvider,
   storageLayer: storageLayer,
   modules: {
