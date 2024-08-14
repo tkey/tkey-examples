@@ -86,7 +86,7 @@ function App() {
 	const reconstructKey = async () => {
 		try {
 			const reconstructedKey = await tKey.reconstructKey();
-			const privateKey = reconstructedKey?.privKey.toString('hex');
+			const privateKey = reconstructedKey?.secp256k1Key.toString('hex');
 
 			await ethereumPrivateKeyProvider.setupProvider(privateKey);
 			setProvider(ethereumPrivateKeyProvider);

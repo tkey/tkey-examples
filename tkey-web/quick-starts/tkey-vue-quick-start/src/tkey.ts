@@ -1,6 +1,6 @@
-import ThresholdKey from '@tkey/core';
+import { TKey } from '@tkey/core';
 import SFAServiceProvider from '@tkey/service-provider-sfa';
-import TorusStorageLayer from '@tkey/storage-layer-torus';
+import { TorusStorageLayer } from '@tkey/storage-layer-torus';
 import { ShareSerializationModule } from '@tkey/share-serialization';
 import { WebStorageModule } from '@tkey/web-storage';
 
@@ -35,7 +35,7 @@ const webStorage = new WebStorageModule();
 const shareSerialization = new ShareSerializationModule();
 
 // Instantiation of tKey
-export const tKey = new ThresholdKey({
+export const tKey = new TKey({
   serviceProvider,
   storageLayer,
   modules: {
