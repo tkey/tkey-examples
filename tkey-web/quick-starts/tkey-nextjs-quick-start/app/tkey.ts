@@ -1,6 +1,6 @@
-import ThresholdKey from '@tkey/core';
+import { TKey } from '@tkey/core';
 import SFAServiceProvider from '@tkey/service-provider-sfa';
-import TorusStorageLayer from '@tkey/storage-layer-torus';
+import { TorusStorageLayer } from '@tkey/storage-layer-torus';
 import { ShareSerializationModule } from '@tkey/share-serialization';
 import { WebStorageModule } from '@tkey/web-storage';
 import { EthereumPrivateKeyProvider } from '@web3auth/ethereum-provider';
@@ -20,11 +20,11 @@ const chainConfig = {
 const web3AuthOptions: any = {
   clientId, // Get your Client ID from Web3Auth Dashboard
   chainConfig,
-  web3AuthNetwork: 'sapphire_mainnet',
+  network: 'sapphire_mainnet',
 };
 
 // Configuration of Service Provider
-const serviceProvider = new SFAServiceProvider({web3AuthOptions});
+const serviceProvider = new SFAServiceProvider({ web3AuthOptions });
 
 export const ethereumPrivateKeyProvider = new EthereumPrivateKeyProvider({
   config: {
@@ -42,7 +42,7 @@ const webStorageModule = new WebStorageModule();
 const shareSerializationModule = new ShareSerializationModule();
 
 // Instantiation of tKey
-export const tKey = new ThresholdKey({
+export const tKey = new TKey({
   serviceProvider,
   storageLayer,
   modules: {
