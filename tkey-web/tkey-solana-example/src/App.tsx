@@ -4,6 +4,7 @@ import { ShareSerializationModule } from '@tkey/share-serialization';
 import { SfaServiceProvider } from '@tkey/service-provider-sfa';
 import { WebStorageModule } from '@tkey/web-storage';
 
+
 // Firebase libraries for custom authentication
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth, signInWithPopup, UserCredential } from "firebase/auth";
@@ -42,6 +43,7 @@ function App() {
       chainConfig,
     },
   });
+
 
   const signInWithGoogle = async (): Promise<UserCredential> => {
 
