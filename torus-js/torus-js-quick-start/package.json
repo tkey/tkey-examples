@@ -1,0 +1,36 @@
+{
+  "name": "sfa-react-vite-quick-start",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint"
+  },
+  "//IMP START": "IMP START - Web3Auth Installation",
+  "dependencies": {
+    "@scure/base": "^1.1.7",
+    "@toruslabs/fetch-node-details": "^14.0.1",
+    "@toruslabs/torus.js": "^15.0.3",
+    "base64url": "^3.0.1",
+    "bn.js": "^5.2.1",
+    "elliptic": "^6.5.7",
+    "firebase": "^10.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tweetnacl": "^1.0.3"
+  },
+  "//IMP END": "IMP START - Web3Auth Installation",
+  "devDependencies": {
+    "@types/elliptic": "^6.4.18",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "buffer": "^6.0.3",
+    "process": "^0.11.10",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.1"
+  }
+}
