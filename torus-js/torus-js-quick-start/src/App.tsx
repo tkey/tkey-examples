@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import "./App.css";
 
+import { Keypair } from "@solana/web3.js";
+import { NodeDetailManager } from "@toruslabs/fetch-node-details";
 // IMP START - Quick Start
 import { Torus, TorusKey } from "@toruslabs/torus.js";
-import { NodeDetailManager } from "@toruslabs/fetch-node-details";
-import base64urlLib from 'base64url';
-import { base58 } from "@scure/base";
-import nacl from 'tweetnacl';
-
+import base64urlLib from "base64url";
 // IMP END - Quick Start
 // Firebase libraries for custom authentication
 import { initializeApp } from "firebase/app";
@@ -39,13 +37,13 @@ function App() {
   // Firebase Initialisation
   const app = initializeApp(firebaseConfig);
 
-  const decodeToken = (token: string) : any => {
+  const decodeToken = (token: string): any => {
     const [header, payload] = token.split(".");
     return {
       header: JSON.parse(base64url.decode(header)),
       payload: JSON.parse(base64url.decode(payload)),
     };
-  }
+  };
 
   // IMP START - Auth Provider Login
   const signInWithGoogle = async (): Promise<UserCredential> => {
@@ -66,7 +64,7 @@ function App() {
     const nodeDetailManagerInstance = new NodeDetailManager({
       network: "sapphire_mainnet",
     });
-    
+
     const torusInstance = new Torus({
       clientId,
       enableOneKey: true,
@@ -94,7 +92,7 @@ function App() {
       useDkg: true,
     });
 
-    const privKey = torusKey.finalKeyData.privKey;
+    const { privKey } = torusKey.finalKeyData;
 
     uiConsole(privKey);
   };
@@ -103,7 +101,7 @@ function App() {
     const nodeDetailManagerInstance = new NodeDetailManager({
       network: "sapphire_mainnet",
     });
-    
+
     const torusInstance = new Torus({
       clientId,
       enableOneKey: true,
@@ -134,23 +132,25 @@ function App() {
 
     uiConsole(torusKey);
 
-    const seedHex = torusKey.finalKeyData.privKey!;
-    const seed = Buffer.from(seedHex, 'hex');
+    const seedHex = torusKey.finalKeyData.privKey;
+    if (!seedHex) {
+      throw new Error("No private key found");
+    }
+    const seed = Buffer.from(seedHex, "hex");
 
-    const keyPair = nacl.sign.keyPair.fromSeed(Uint8Array.from(seed));
+    const keyPair = Keypair.fromSeed(seed);
 
-    const privateKey = Buffer.from(keyPair.secretKey).toString('hex'); 
-    const publicKey = Buffer.from(keyPair.publicKey).toString('hex');
-    const address = base58.encode(keyPair.publicKey);
+    const privateKey = Buffer.from(keyPair.secretKey).toString("hex");
+    const { publicKey } = keyPair;
 
     const result = {
-      'Expanded Private Key (64 bytes):': privateKey, 
-      'Public Key X:': torusKey.finalKeyData.X,
-      'Public Key Y:': torusKey.finalKeyData.Y,
-      'Public Key (32 bytes):': publicKey,
-      'Address from Public Key:': address,
-      'Address from Web3Auth:': torusKey.finalKeyData.walletAddress,
-    }
+      "Expanded Private Key (64 bytes):": privateKey,
+      "Public Key X:": torusKey.finalKeyData.X,
+      "Public Key Y:": torusKey.finalKeyData.Y,
+      "Public Key (32 bytes):": publicKey,
+      "Address from Public Key:": publicKey.toBase58(),
+      "Address from Web3Auth:": torusKey.finalKeyData.walletAddress,
+    };
     uiConsole(result);
   };
 
@@ -176,7 +176,7 @@ function App() {
           Login & Get Ethereum Key
         </button>
         <button onClick={loginSolana} className="card">
-           Login & Get Solana Key
+          Login & Get Solana Key
         </button>
       </div>
       <div id="console" style={{ whiteSpace: "pre-line" }}>
