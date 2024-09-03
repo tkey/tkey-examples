@@ -147,7 +147,7 @@ function App() {
       'Expanded Private Key (64 bytes):': privateKey, 
       'Public Key X:': torusKey.finalKeyData.X,
       'Public Key Y:': torusKey.finalKeyData.Y,
-      'Public Key (64 bytes):': publicKey,
+      'Public Key (32 bytes):': publicKey,
       'Address from Public Key:': address,
       'Address from Web3Auth:': torusKey.finalKeyData.walletAddress,
     }
