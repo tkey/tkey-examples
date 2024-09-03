@@ -2,7 +2,7 @@
 import "./App.css";
 
 // IMP START - Quick Start
-import { Torus, TorusKey, Point, encodeEd25519Point } from "@toruslabs/torus.js";
+import { Torus, TorusKey } from "@toruslabs/torus.js";
 import { NodeDetailManager } from "@toruslabs/fetch-node-details";
 import base64urlLib from 'base64url';
 import { base58 } from "@scure/base";
