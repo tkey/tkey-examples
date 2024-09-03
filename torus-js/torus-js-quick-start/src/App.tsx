@@ -138,7 +138,7 @@ function App() {
     }
     const seed = Buffer.from(seedHex, "hex");
 
-    const keyPair = Keypair.fromSeed(seed);
+    const keyPair = Keypair.fromSeed(new Uint8Array(seed));
 
     const privateKey = Buffer.from(keyPair.secretKey).toString("hex");
     const { publicKey } = keyPair;
@@ -147,7 +147,7 @@ function App() {
       "Expanded Private Key (64 bytes):": privateKey,
       "Public Key X:": torusKey.finalKeyData.X,
       "Public Key Y:": torusKey.finalKeyData.Y,
-      "Public Key (32 bytes):": publicKey,
+      "Public Key (32 bytes):": publicKey.toBuffer().toString("hex"),
       "Address from Public Key:": publicKey.toBase58(),
       "Address from Web3Auth:": torusKey.finalKeyData.walletAddress,
     };
