@@ -89,7 +89,6 @@ function App() {
       verifierParams: { verifier_id: (payload as any).sub },
       idToken,
       nodePubkeys: torusNodePub,
-      useDkg: true,
     });
 
     const { privKey } = torusKey.finalKeyData;
@@ -127,7 +126,6 @@ function App() {
       verifierParams: { verifier_id: (payload as any).sub },
       idToken,
       nodePubkeys: torusNodePub,
-      useDkg: true,
     });
 
     uiConsole(torusKey);
