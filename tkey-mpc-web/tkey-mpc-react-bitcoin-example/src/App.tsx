@@ -7,10 +7,9 @@ import { generatePrivate } from "eccrypto";
 import { useEffect, useState } from "react";
 import swal from "sweetalert";
 import { tKey } from "./tkey";
-import { addFactorKeyMetadata, setupWeb3, copyExistingTSSShareForNewFactor, addNewTSSShareAndFactor, getEcCrypto } from "./utils";
-import { utils } from "@toruslabs/tss-client";
+import { addFactorKeyMetadata, setupWeb3, copyExistingTSSShareForNewFactor, addNewTSSShareAndFactor, getEcCrypto, SigningParams } from "./utils";
 import { OpenloginSessionManager } from "@toruslabs/openlogin-session-manager";
-import { networks, Psbt } from "bitcoinjs-lib";
+import { networks, Psbt, payments } from "bitcoinjs-lib";
 import ecc from "@bitcoinerlab/secp256k1";
 import ECPairFactory from "ecpair";
 import { testnet } from "bitcoinjs-lib/src/networks";
@@ -20,7 +19,6 @@ import { ShareSerializationModule } from "@tkey-mpc/share-serialization";
 import {TorusLoginResponse} from "@toruslabs/customauth";
 import { SignerAsync } from "bitcoinjs-lib";
 
-const { getTSSPubKey } = utils;
 const ECPair = ECPairFactory(ecc);
 
 const uiConsole = (...args: any[]): void => {
@@ -41,8 +39,10 @@ function App() {
   const [localFactorKey, setLocalFactorKey] = useState<BN | null>(null);
   const [oAuthShare, setOAuthShare] = useState<BN | null>(null);
   const [web3, setWeb3] = useState<SignerAsync | null>(null);
-  const [signingParams, setSigningParams] = useState<any>(null);
+  const [signingParams, setSigningParams] = useState<SigningParams | null>(null);
   const [bitcoinUTXID, setBitcoinUTXID] = useState<string | null>(null);
+  const [latestBalance, setLatestBalance] = useState<string | null>(null);
+  const [minerFee, setMinerFee] = useState<string | null>(null);
   const [fundingTxIndex, setFundingTxIndex] = useState<string | null>(null);
   const [sessionManager, setSessionManager] = useState<OpenloginSessionManager<typeof signingParams>>(new OpenloginSessionManager({}));
 
@@ -67,7 +67,7 @@ function App() {
       try {
         await (tKey.serviceProvider as any).init();
         const sessionId = localStorage.getItem("sessionId");
-        const sessionManager = new OpenloginSessionManager({
+        const sessionManager = new OpenloginSessionManager<SigningParams>({
           sessionTime: 86400,
           sessionId: sessionId!,
         });
@@ -104,7 +104,6 @@ function App() {
             privateKey: signingParams.oAuthShare,
           };
           setLoginResponse(loginResponse);
-          signingParams["compressedTSSPubKey"] = Buffer.from(signingParams.compressedTSSPubKey.padStart(64, "0"), "hex");
           setSigningParams(signingParams);
 
           uiConsole(
@@ -127,8 +126,10 @@ function App() {
   // sets up web3
   useEffect(() => {
     const localSetup = async () => {
-      const web3Local = await setupWeb3(loginResponse, signingParams);
-      setWeb3(web3Local);
+      if (signingParams) {
+        const web3Local = await setupWeb3(loginResponse, signingParams);
+        setWeb3(web3Local);
+      }
     };
     if (signingParams) {
       localSetup();
@@ -154,11 +155,6 @@ function App() {
       uiConsole(error);
     }
   };
-
-  useEffect(() => {
-    setBitcoinUTXID("Enter UTXID here")
-    setFundingTxIndex("FundingTxIndex (often 0)")
-  }, []);
 
   const initializeNewKey = async () => {
     if (!tKey) {
@@ -239,32 +235,20 @@ function App() {
       setMetadataKey(metadataKey?.privKey.toString("hex"));
 
       const tssNonce: number = tKey.metadata.tssNonces![tKey.tssTag];
-      // tssShare1 = TSS Share from the social login/ service provider
-      const tssShare1PubKeyDetails = await tKey.serviceProvider.getTSSPubKey(tKey.tssTag, tssNonce);
-
-      const tssShare1PubKey = {
-        x: tssShare1PubKeyDetails.pubKey.x.toString("hex"),
-        y: tssShare1PubKeyDetails.pubKey.y.toString("hex"),
-      };
-
-      // tssShare2 = TSS Share from the local storage of the device
       const { tssShare: tssShare2, tssIndex: tssShare2Index } = await tKey.getTSSShare(factorKey);
 
-      const ec = getEcCrypto();
-      const tssShare2ECPK = ec.curve.g.mul(tssShare2);
-      const tssShare2PubKey = {
-        x: tssShare2ECPK.getX().toString("hex"),
-        y: tssShare2ECPK.getY().toString("hex"),
-      };
-
       // 4. derive tss pub key, tss pubkey is implicitly formed using the dkgPubKey and the userShare (as well as userTSSIndex)
-      const tssPubKey = getTSSPubKey(tssShare1PubKey, tssShare2PubKey, tssShare2Index);
+      let tssPubKeyPoint = tKey.getTSSPub()
+      // const tssPubKey = getTSSPubKey(tssShare1PubKey, tssShare2PubKey, tssShare2Index);
       // console.log("tssPub", tssPubKey);
 
-      const compressedTSSPubKey = Buffer.from(`${tssPubKey.getX().toString(16, 64)}${tssPubKey.getY().toString(16, 64)}`, "hex");
-      const prefixedCompressedTSSPubKey = Buffer.from(`04${compressedTSSPubKey.toString("hex")}`, "hex");
-      const ECPubKey = ECPair.fromPublicKey(prefixedCompressedTSSPubKey, { network: testnet });
+      const tssPubKey = Buffer.from(`${tssPubKeyPoint.x.toString(16, 64)}${tssPubKeyPoint.y.toString(16, 64)}`, "hex");
+
+      const prefixedTSSPubKey = Buffer.from(`04${tssPubKey.toString("hex")}`, "hex");
+      const ECPubKey = ECPair.fromPublicKey(prefixedTSSPubKey, { network: testnet , compressed: true});
       const { address: btcAddress } = p2pkh({ pubkey: ECPubKey.publicKey, network: testnet });
+      
+      if (!btcAddress) throw new Error("Invalid address");
 
       // 5. save factor key and other metadata
       if (
@@ -279,15 +263,15 @@ function App() {
 
       const nodeDetails = await tKey.serviceProvider.getTSSNodeDetails()
 
-      const signingParams = {
-        oAuthShare: OAuthShare,
-        factorKey,
+      const signingParams : SigningParams = {
+        oAuthShare: OAuthShare.toString("hex"),
+        factorKey: factorKey.toString("hex"),
         btcAddress,
-        ecPublicKey: ECPubKey.publicKey,
+        ecPublicKey: ECPubKey.publicKey.toString("hex"),
         tssNonce,
-        tssShare2,
+        tssShare2 : tssShare2.toString("hex"),
         tssShare2Index,
-        compressedTSSPubKey,
+        tssPubKey: tssPubKey.toString("hex"),
         signatures,
         userInfo: loginResponse!.userInfo,
         nodeDetails,
@@ -315,14 +299,13 @@ function App() {
     }
   };
 
-  async function createSession(signingParams: any) {
+  async function createSession(signingParams: SigningParams) {
     try {
       const sessionId = OpenloginSessionManager.generateRandomSessionKey();
       sessionManager!.sessionId = sessionId!;
       if (!signingParams) {
         throw new Error("User not logged in");
       }
-      signingParams["compressedTSSPubKey"] = Buffer.from(signingParams.compressedTSSPubKey).toString("hex");
       await sessionManager!.createSession(signingParams);
       localStorage.setItem("sessionId", sessionId);
       uiConsole("Successfully created session");
@@ -373,6 +356,9 @@ function App() {
       }
       if (!localFactorKey) {
         throw new Error("localFactorKey does not exist, cannot add factor pub");
+      }
+      if (!signingParams) {
+        throw new Error("signingParams does not exist, cannot add factor pub");
       }
 
       const backupFactorKey = new BN(generatePrivate());
@@ -457,6 +443,10 @@ function App() {
       uiConsole("web3 not initialized yet");
       return;
     }
+    if (!signingParams) {
+      uiConsole("signingParams not initialized yet");
+      return;
+    }
     uiConsole("Bitcoin address", signingParams.btcAddress);
     return signingParams.btcAddress;
   };
@@ -470,6 +460,10 @@ function App() {
       uiConsole("invalid bitcoin utxid");
       return;
     }
+    if (!signingParams) {
+      uiConsole("signingParams not initialized yet");
+      return;
+    }
     try {
       parseInt(fundingTxIndex as string);
     } catch (e) { 
@@ -478,9 +472,10 @@ function App() {
     
     // unspent transaction
     const txId = bitcoinUTXID; // looks like this "bb072aa6a43af31642b635e82bd94237774f8240b3e6d99a1b659482dce013c6"
-    const total = 170; // 0.0000017
+    const total = Number(latestBalance); // 1321953; // 0.0000017
+
     const value = 20;
-    const miner = 50;
+    const miner = Number(minerFee);
 
     // fetch transaction from testnet
     const txHex = await (await fetch(`https://blockstream.info/testnet/api/tx/${txId}/hex`)).text();
@@ -495,11 +490,72 @@ function App() {
         nonWitnessUtxo: Buffer.from(txHex, "hex"),
       })
       .addOutput({
-        address: outAddr,
+        address: outAddr!,
         value: value,
       })
       .addOutput({
         address: signingParams.btcAddress,
+        value: total - value - miner,
+      });
+
+    uiConsole("Signing transaction...");
+    await psbt.signInputAsync(0, web3);
+    psbt.validateSignaturesOfInput(0, BTCValidator);
+    const validation = psbt.validateSignaturesOfInput(0, BTCValidator);
+    const signedTransaction = psbt.finalizeAllInputs().extractTransaction().toHex()
+    uiConsole("Signed Transaction: ", signedTransaction, "Copy the above into https://blockstream.info/testnet/tx/push");
+    console.log(validation ? "Validated" : "failed");
+    console.log("signedTransaction: ", signedTransaction );
+  };
+
+
+
+  const sendTransactionSegwit = async () => {
+    if (!web3) {
+      uiConsole("web3 not initialized yet");
+      return;
+    }
+
+    let account = payments.p2wpkh({ pubkey: web3.publicKey, network: testnet });
+
+    if (bitcoinUTXID?.length !== 64) {
+      uiConsole("invalid bitcoin utxid");
+      return;
+    }
+    if (!signingParams) {
+      uiConsole("signingParams not initialized yet");
+      return;
+    }
+    try {
+      parseInt(fundingTxIndex as string);
+    } catch (e) { 
+      uiConsole("invalid funding tx index");
+      return }
+    
+    // unspent transaction
+    const txId = bitcoinUTXID; // looks like this "bb072aa6a43af31642b635e82bd94237774f8240b3e6d99a1b659482dce013c6"
+    const total = Number(latestBalance); // 1321953; // 0.0000017
+
+    const value = 20;
+    const miner = Number(minerFee);
+
+    const outAddr = await getAccounts();
+    console.log(outAddr, typeof outAddr)
+    const psbt = new Psbt({ network: networks.testnet })
+      .addInput({
+        hash: txId,
+        index: parseInt(fundingTxIndex as string),
+        witnessUtxo: {
+          script: Buffer.from('0014' + account.hash?.toString("hex"), 'hex'),
+          value: total, 
+        },
+      })
+      .addOutput({
+        address: account.address!,
+        value: value,
+      })
+      .addOutput({
+        address: account.address!,
         value: total - value - miner,
       });
 
@@ -565,15 +621,20 @@ function App() {
           Get Testnet Bitcoin from Faucet
         </button>
 
-
-      <input value={bitcoinUTXID as string} onChange={(e) => setBitcoinUTXID(e.target.value)}></input>
-      <input value={fundingTxIndex as string} onChange={(e) => setFundingTxIndex(e.target.value)}></input>
+      <div className="flex-container">
+        <input value={minerFee as string} onChange={(e) => setMinerFee(e.target.value)} placeholder="set Miner Fee"></input>
+        <input value={latestBalance as string} onChange={(e) => setLatestBalance(e.target.value)} placeholder="set latest balance"></input>
+        <input value={bitcoinUTXID as string} onChange={(e) => setBitcoinUTXID(e.target.value)} placeholder="set UTXID here"></input>
+        <input value={fundingTxIndex as string} onChange={(e) => setFundingTxIndex(e.target.value)} placeholder="FundingTxIndex (often 0)"></input>
 
         <button onClick={sendTransaction} className="card">
           Sign PSBT Transaction
         </button>
+        <button onClick={sendTransactionSegwit} className="card">
+          Sign Segwit Transaction
+        </button>
       </div>
-
+      </div>
       <div id="console" style={{ whiteSpace: "pre-line" }}>
         <p style={{ whiteSpace: "pre-line" }}></p>
       </div>
