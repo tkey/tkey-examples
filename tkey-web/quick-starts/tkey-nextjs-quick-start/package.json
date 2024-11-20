@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tkey/core": "^12.0.0",
-    "@tkey/service-provider-sfa": "^11.0.0",
-    "@tkey/share-serialization": "^12.0.0",
-    "@tkey/storage-layer-torus": "^12.0.0",
-    "@tkey/web-storage": "^12.0.0",
+    "@tkey/core": "^15.0.1",
+    "@tkey/service-provider-sfa": "^15.0.0",
+    "@tkey/share-serialization": "^15.0.0",
+    "@tkey/storage-layer-torus": "^15.0.0",
+    "@tkey/web-storage": "^15.0.0",
     "@web3auth/base": "^7.2.1",
     "@web3auth/ethereum-provider": "^7.2.1",
     "firebase": "^10.4.0",

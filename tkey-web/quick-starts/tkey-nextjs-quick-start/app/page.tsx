@@ -39,21 +39,6 @@ function App() {
   // Firebase Initialisation
   const app = initializeApp(firebaseConfig);
 
-  useEffect(() => {
-    const init = async () => {
-      // Initialization of Service Provider
-      try {
-        await (tKey.serviceProvider as any).init(
-          ethereumPrivateKeyProvider,
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    init();
-  }, []);
-
   const signInWithGoogle = async (): Promise<UserCredential> => {
     try {
       const auth = getAuth(app);
@@ -91,7 +76,7 @@ function App() {
         tKey.serviceProvider as SfaServiceProvider
       ).connect({
         verifier,
-        verifierId: userInfo.email,
+        verifierId: userInfo.sub,
         idToken,
       });
 
@@ -99,7 +84,7 @@ function App() {
 
       setTKeyInitialised(true);
 
-      var {requiredShares} = tKey.getKeyDetails();
+      var { requiredShares } = tKey.getKeyDetails();
 
       if (requiredShares > 0) {
         uiConsole('Please enter your backup shares, requiredShares:', requiredShares);
@@ -115,12 +100,12 @@ function App() {
   const reconstructKey = async () => {
     try {
       const reconstructedKey = await tKey.reconstructKey();
-      const privateKey = reconstructedKey?.privKey.toString('hex');
+      const privateKey = reconstructedKey?.secp256k1Key.toString('hex');
 
       await ethereumPrivateKeyProvider.setupProvider(privateKey);
       setProvider(ethereumPrivateKeyProvider);
+      await setDeviceShare();
       setLoggedIn(true);
-      setDeviceShare();
     } catch (e) {
       uiConsole(e);
     }
@@ -138,13 +123,13 @@ function App() {
   };
 
   const keyDetails = async () => {
-		if (!tKey) {
-			uiConsole("tKey not initialized yet");
-			return;
-		}
-		const keyDetails = await tKey.getKeyDetails();
-		uiConsole(keyDetails);
-	};
+    if (!tKey) {
+      uiConsole("tKey not initialized yet");
+      return;
+    }
+    const keyDetails = await tKey.getKeyDetails();
+    uiConsole(keyDetails);
+  };
 
   const setDeviceShare = async () => {
     try {
@@ -212,7 +197,7 @@ function App() {
     } catch (error) {
       uiConsole(error);
     }
-  }; 
+  };
 
   const getUserInfo = async () => {
     uiConsole(userInfo);
@@ -308,16 +293,16 @@ function App() {
             Get User Info
           </button>
         </div>
-				<div>
-					<button onClick={keyDetails} className='card'>
-						Key Details
-					</button>
-				</div>
-				<div>
-					<button onClick={exportMnemonicShare} className='card'>
-						Generate Backup (Mnemonic)
-					</button>
-				</div>
+        <div>
+          <button onClick={keyDetails} className='card'>
+            Key Details
+          </button>
+        </div>
+        <div>
+          <button onClick={exportMnemonicShare} className='card'>
+            Generate Backup (Mnemonic)
+          </button>
+        </div>
         <div>
           <button onClick={getAccounts} className="card">
             Get Accounts
@@ -339,9 +324,9 @@ function App() {
           </button>
         </div>
         <div>
-        <button onClick={criticalResetAccount} className="card">
-          [CRITICAL] Reset Account
-        </button>
+          <button onClick={criticalResetAccount} className="card">
+            [CRITICAL] Reset Account
+          </button>
         </div>
       </div>
     </>
@@ -349,38 +334,38 @@ function App() {
 
   const unloggedInView = (
     <>
-    <button onClick={login} className="card">
-      Login
-    </button>
-    <div className={tKeyInitialised ? "" : "disabledDiv" } >
+      <button onClick={login} className="card">
+        Login
+      </button>
+      <div className={tKeyInitialised ? "" : "disabledDiv"} >
 
-      <button onClick={() => getDeviceShare()} className="card">
-        Get Device Share
-      </button>
-      <label>Backup/ Device Share:</label>
-      <input value={recoveryShare} onChange={(e) => setRecoveryShare(e.target.value)}></input>
-      <button onClick={() => inputRecoveryShare(recoveryShare)} className="card">
-        Input Recovery Share
-      </button>
-      <button onClick={criticalResetAccount} className="card">
-        [CRITICAL] Reset Account
-      </button>
-      <label>Recover Using Mnemonic Share:</label>
+        <button onClick={() => getDeviceShare()} className="card">
+          Get Device Share
+        </button>
+        <label>Backup/ Device Share:</label>
+        <input value={recoveryShare} onChange={(e) => setRecoveryShare(e.target.value)}></input>
+        <button onClick={() => inputRecoveryShare(recoveryShare)} className="card">
+          Input Recovery Share
+        </button>
+        <button onClick={criticalResetAccount} className="card">
+          [CRITICAL] Reset Account
+        </button>
+        <label>Recover Using Mnemonic Share:</label>
         <input value={mnemonicShare} onChange={(e) => setMnemonicShare(e.target.value)}></input>
         <button onClick={() => MnemonicToShareHex(mnemonicShare)} className="card">
           Get Recovery Share using Mnemonic
         </button>
       </div>
-      </>
+    </>
   );
 
   return (
     <div className="container">
       <h1 className="title">
         <a target="_blank" href="https://web3auth.io/docs/sdk/core-kit/tkey" rel="noreferrer">
-          Web3Auth tKey 
+          Web3Auth tKey
         </a>{" "}
-         & NextJS Quick Start
+        & NextJS Quick Start
       </h1>
 
       <div className="grid">{loggedIn ? loggedInView : unloggedInView}</div>

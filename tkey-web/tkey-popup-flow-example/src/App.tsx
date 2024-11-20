@@ -19,10 +19,10 @@ const ethereumPrivateKeyProvider = new EthereumPrivateKeyProvider({
 		all chainConfig fields are required.
 		*/
 		chainConfig: {
-			chainId: "0x13881",
-			rpcTarget: "https://rpc.ankr.com/polygon_mumbai",
-			displayName: "Polygon Testnet",
-			blockExplorer: "https://mumbai.polygonscan.com",
+			chainId: "0x13882",
+			rpcTarget: "https://polygon-amoy.drpc.org",
+			displayName: "Polygon Amoy",
+			blockExplorer: "https://www.oklink.com/amoy",
 			ticker: "MATIC",
 			tickerName: "Matic",
 		},
@@ -86,7 +86,7 @@ function App() {
 	const reconstructKey = async () => {
 		try {
 			const reconstructedKey = await tKey.reconstructKey();
-			const privateKey = reconstructedKey?.privKey.toString('hex');
+			const privateKey = reconstructedKey?.secp256k1Key.toString('hex');
 
 			await ethereumPrivateKeyProvider.setupProvider(privateKey);
 			setProvider(ethereumPrivateKeyProvider);
@@ -203,7 +203,7 @@ function App() {
 				await (tKey.modules.securityQuestions as SecurityQuestionsModule).inputShareFromSecurityQuestions(password);
 				await reconstructKey();
 				uiConsole('Successfully recovered new share with password.');
-				
+
 			} else {
 				throw new Error('Password must be >= 11 characters');
 			}

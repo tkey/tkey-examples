@@ -50,20 +50,6 @@ export class AppComponent {
 
   app = initializeApp(firebaseConfig);
 
-  async ngOnInit() {
-    const init = async () => {
-      try {
-        await (tKey.serviceProvider as SfaServiceProvider).init(
-          ethereumPrivateKeyProvider,
-        );
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    init();
-  }
-
   signInWithGoogle = async (): Promise<UserCredential> => {
     try {
       const auth = getAuth(this.app);
@@ -108,7 +94,7 @@ export class AppComponent {
 
       this.tKeyInitialised = true;
 
-      var {requiredShares} = tKey.getKeyDetails();
+      var { requiredShares } = tKey.getKeyDetails();
 
       if (requiredShares > 0) {
         this.uiConsole('Please enter your backup shares, requiredShares:', requiredShares);
@@ -124,12 +110,13 @@ export class AppComponent {
   reconstructKey = async () => {
     try {
       const reconstructedKey = await tKey.reconstructKey();
-      const privateKey = reconstructedKey?.privKey.toString('hex');
+      const privateKey = reconstructedKey?.secp256k1Key.toString('hex');
 
       await ethereumPrivateKeyProvider.setupProvider(privateKey);
       this.provider = ethereumPrivateKeyProvider;
+
+      await this.setDeviceShare();
       this.loggedIn = true;
-      this.setDeviceShare();
     } catch (e) {
       this.uiConsole(e);
     }
@@ -214,21 +201,21 @@ export class AppComponent {
     } catch (error) {
       this.uiConsole(error);
     }
-  }; 
+  };
 
   keyDetails = async () => {
-		if (!tKey) {
-			this.uiConsole("tKey not initialized yet");
-			return;
-		}
-		const keyDetails = await tKey.getKeyDetails();
-		this.uiConsole(keyDetails);
-	};
+    if (!tKey) {
+      this.uiConsole("tKey not initialized yet");
+      return;
+    }
+    const keyDetails = await tKey.getKeyDetails();
+    this.uiConsole(keyDetails);
+  };
 
   getUserInfo = async () => {
     this.uiConsole(this.userInfo);
   };
-  
+
   logout = async () => {
     this.provider = null;
     this.loggedIn = false;

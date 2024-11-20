@@ -1,6 +1,6 @@
-import ThresholdKey from "@tkey/default";
-import WebStorageModule from "@tkey/web-storage";
-import SecurityQuestionsModule from "@tkey/security-questions";
+import { TKeyDefault } from "@tkey/default";
+import { WebStorageModule } from "@tkey/web-storage";
+import { SecurityQuestionsModule } from "@tkey/security-questions";
 import { TORUS_SAPPHIRE_NETWORK } from "@toruslabs/constants";
 
 // Configuration of Service Provider
@@ -9,7 +9,7 @@ const webStorageModule = new WebStorageModule();
 const securityQuestionsModule = new SecurityQuestionsModule();
 
 // Instantiation of tKey
-export const tKey = new ThresholdKey({
+export const tKey = new TKeyDefault({
   modules: {
     webStorage: webStorageModule,
     securityQuestions: securityQuestionsModule,
