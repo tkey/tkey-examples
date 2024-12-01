@@ -16,7 +16,7 @@
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-tsdoc": "^0.2.17",
     "lerna": "^6.4.1",
     "npm-check-updates": "^16.7.4",
