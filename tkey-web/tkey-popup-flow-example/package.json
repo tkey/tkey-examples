@@ -36,7 +36,7 @@
 		"workbox-streams": "^6.5.4"
 	},
 	"scripts": {
-		"start": "react-app-rewired start",
+		"start": "PORT=5173 react-app-rewired start",
 		"serve": "serve -s build",
 		"build": "react-app-rewired build",
 		"test": "react-app-rewired test",
