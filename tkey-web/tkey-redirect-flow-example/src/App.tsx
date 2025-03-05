@@ -22,10 +22,10 @@ const ethereumPrivateKeyProvider = new EthereumPrivateKeyProvider({
 		all chainConfig fields are required.
 		*/
 		chainConfig: {
-			chainId: "0x13881",
-			rpcTarget: "https://rpc.ankr.com/polygon_mumbai",
+			chainId: "0x13882",
+			rpcTarget: "https://rpc.ankr.com/polygon_amoy",
 			displayName: "Polygon Testnet",
-			blockExplorer: "https://mumbai.polygonscan.com",
+			blockExplorer: "https://amoy.polygonscan.com",
 			ticker: "MATIC",
 			tickerName: "Matic",
 		},
@@ -81,11 +81,17 @@ function App() {
 		}
 		try {
 			// Triggering Login using Service Provider ==> opens the popup
-			(tKey.serviceProvider as any).triggerLogin({
-				typeOfLogin: 'google',
-				verifier: 'w3a-google-demo',
-				clientId:
-					'519228911939-cri01h55lsjbsia1k7ll6qpalrus75ps.apps.googleusercontent.com',
+			(tKey.serviceProvider as any).triggerAggregateLogin({
+				aggregateVerifierType: "single_id_verifier",
+				verifierIdentifier: "numo-google-alpha.2",
+				subVerifierDetailsArray: [
+				  {
+					verifier: "google-web",
+					typeOfLogin: "google",
+					clientId:
+					  "921079059634-hgs6sal5ie0jfdmoo36aj21kj4lbdrn9.apps.googleusercontent.com",
+				  },
+				],
 			});
 		} catch (error) {
 			uiConsole(error, 'caught');

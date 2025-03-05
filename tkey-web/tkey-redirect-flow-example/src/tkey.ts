@@ -14,12 +14,12 @@ export const tKey = new ThresholdKey({
     securityQuestions: securityQuestionsModule,
   },
   customAuthArgs: {
-    web3AuthClientId: "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ",
+    web3AuthClientId: "BL9KDlh5mpDm_yJoN1VIpR6ZIUukWN7okEx6hMn8_HEKUPhHyxA-QOdwWqwbBBvMU2cn7A7Ll80WIOguhFqeKNc",
     baseUrl: window.location.origin,
     redirectPathName: "auth",
     enableLogging: true,
     uxMode: "redirect",
-    network: TORUS_SAPPHIRE_NETWORK.SAPPHIRE_MAINNET,
+    network: TORUS_SAPPHIRE_NETWORK.SAPPHIRE_DEVNET,
   },
 });
 

@@ -17,6 +17,6 @@ export const tKey = new ThresholdKey({
   customAuthArgs: {
     web3AuthClientId: "BIXMFlyinF9KZs8Wk-ax8WV8oztnMhaOASxCON4ozfIVU1cqdOUmF2ZCCr71HkHHQKeycKUTPMV1wlPZ3yyl6Rc",
     baseUrl: `${window.location.origin}/serviceworker`,
-    network: TORUS_SAPPHIRE_NETWORK.SAPPHIRE_MAINNET,
+    network: TORUS_SAPPHIRE_NETWORK.SAPPHIRE_DEVNET,
   },
 });
