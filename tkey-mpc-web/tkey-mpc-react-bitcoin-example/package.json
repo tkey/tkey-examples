@@ -40,10 +40,10 @@
 		"react-scripts": "5.0.1",
 		"secp256k1": "5.0.0",
 		"sweetalert": "^2.1.2",
-		"tiny-secp256k1": "1.1.6",
+		"tiny-secp256k1": "1.1.7",
 		"typescript": "^4.9.3",
 		"web-vitals": "^2.1.4",
-		"web3": "^1.8.2"
+		"web3": "^4.16.0"
 	},
 	"devDependencies": {
 		"@types/eccrypto": "^1.1.3",
